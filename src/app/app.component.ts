@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
     RouterOutlet,
     HttpClientModule
   ],
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'backup-client';

@@ -1,4 +1,3 @@
-<!-- src/app/config-bkp/config-bkp.component.html -->
 <div class="backup-container">
     <div class="backup-header">Backup</div>
     <div class="backup-content">
@@ -18,7 +17,7 @@
     <input id="newIp" [(ngModel)]="newIp" />
     <label for="newAlias">Alias:</label>
     <input id="newAlias" [(ngModel)]="newAlias" />
-    <button (click)="addConfig()">
+    <button >
         <span class="icon">💾</span> Adicionar
     </button>
 </div>
@@ -26,12 +25,12 @@
     <h3>Adicionar Pasta de Backup:</h3>
     <label for="newFolder">Pasta:</label>
     <input id="newFolder" [(ngModel)]="newFolder" />
-    <button (click)="addFolder()">
+    <button >
         <span class="icon">📁</span> Adicionar
     </button>
 </div>
 <div class="save-config-container">
-    <button class="save-config-button" (click)="saveConfig()">
+    <button class="save-config-button">
         <span class="icon">💾</span> Salvar
     </button>
 </div>

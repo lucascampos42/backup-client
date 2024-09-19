@@ -1,0 +1,25 @@
+/* src/styles.scss */
+$primary-color: #ff6200;
+$secondary-color: #007bff;
+$hover-color: darken($primary-color, 10%);
+$secondary-hover-color: darken($secondary-color, 10%);
+$danger-color: #dc3545;
+$danger-hover-color: darken($danger-color, 10%);
+$success-color: #28a745;
+$success-hover-color: darken($success-color, 10%);
+$background-color: #f8f9fa;
+$border-color: #ddd;
+
+@mixin button-styles($bg-color, $hover-color) {
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}

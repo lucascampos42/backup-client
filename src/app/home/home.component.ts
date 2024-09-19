@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   accessMessage = "";
+  private attemptCount = 0;
 
   constructor(private router: Router) {}
 
@@ -26,8 +27,14 @@ export class HomeComponent {
     if (password === calculatedPassword.toString()) {
       this.accessMessage = "Acesso concedido!";
       this.router.navigate(['/config-panel']);
+      this.attemptCount = 0; // Reset attempt count on success
     } else {
-      this.accessMessage = "Senha incorreta. Tente novamente.";
+      this.attemptCount++;
+      if (this.attemptCount >= 2) {
+        this.accessMessage = "Painel só pode ser usado por técnicos.";
+      } else {
+        this.accessMessage = "Senha incorreta. Tente novamente.";
+      }
     }
   }
 }

@@ -14,15 +14,4 @@ export class ConfigService {
 
   constructor(private http: HttpClient) {}
 
-  getConfig(): Observable<Config> {
-    return this.http.get<Config>(`${this.configUrl}/get`);
-  }
-
-  saveConfig(config: Config): Observable<void> {
-    return this.http.post<void>(`${this.configUrl}/save`, config);
-  }
-
-  getFirebirdConfig(): Observable<{ firebirdConfigs: { ip: string; alias: string; }[]; backupFolders: string[]; }> {
-    return this.http.get<{ firebirdConfigs: { ip: string; alias: string; }[]; backupFolders: string[]; }>(`${this.configUrl}/firebird`);
-  }
 }

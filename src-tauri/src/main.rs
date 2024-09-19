@@ -7,8 +7,6 @@ use tauri::{CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent, Manager
 use winreg::enums::*;
 use winreg::RegKey;
 use std::path::PathBuf;
-mod firebird_config;
-use firebird_config::{load_firebird_config, save_firebird_config, FirebirdConfig, connect_to_firebird};
 
 fn main() {
   let quit = CustomMenuItem::new("quit".to_string(), "Sair");
@@ -57,7 +55,6 @@ fn main() {
       set_startup();
       Ok(())
     })
-    .invoke_handler(generate_handler![get_firebird_config, save_firebird_config_command, connect_to_firebird_command])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
@@ -69,23 +66,4 @@ fn set_startup() {
 
   let (key, _) = hkcu.create_subkey("Software\\Microsoft\\Windows\\CurrentVersion\\Run").unwrap();
   key.set_value("backup-client", &exe_path).unwrap();
-}
-
-#[tauri::command]
-fn get_firebird_config() -> Result<Vec<FirebirdConfig>, String> {
-  load_firebird_config()
-}
-
-#[tauri::command]
-fn save_firebird_config_command(config_data: Vec<FirebirdConfig>) -> Result<(), String> {
-  println!("Recebendo dados para salvar: {:?}", config_data);
-  save_firebird_config(config_data)
-}
-
-#[tauri::command]
-fn connect_to_firebird_command(ip: String, alias: String, gbak_path: String) -> Result<(), String> {
-  match connect_to_firebird(&ip, &alias, &gbak_path) {
-    Ok(_) => Ok(()),
-    Err(e) => Err(e.to_string()),
-  }
 }
