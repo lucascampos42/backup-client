@@ -9,9 +9,9 @@ bootstrapApplication(AppComponent, appConfig).catch((err) =>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }).catch(error => {
-            console.error('Service Worker registration failed:', error);
+            console.error('ServiceWorker registration failed: ', error);
         });
     });
 }

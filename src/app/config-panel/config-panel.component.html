@@ -1,5 +1,17 @@
-
 <div class="config-panel">
     <h2>Configuração do Painel</h2>
     <button class="lock-icon" (click)="goToHome()">🔒</button>
+</div>
+<div *ngFor="let config of firebirdConfigs; let i = index">
+    <p>IP: {{ config.ip }} | Alias: {{ config.alias }}
+        <button (click)="removeConfig(i)">Remover</button>
+    </p>
+</div>
+<div>
+    <h3>Adicionar Nova Configuração</h3>
+    <label for="newIp">IP:</label>
+    <input id="newIp" [(ngModel)]="newIp" />
+    <label for="newAlias">Alias:</label>
+    <input id="newAlias" [(ngModel)]="newAlias" />
+    <button (click)="addConfig()">Adicionar</button>
 </div>

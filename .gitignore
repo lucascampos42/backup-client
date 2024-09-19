@@ -40,3 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+.idea/material_theme_project_new.xml
+.idea/workspace.xml

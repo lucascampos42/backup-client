@@ -1,13 +1,14 @@
-// src-tauri/src/main.rs
 #![cfg_attr(
   all(not(debug_assertions), target_os = "windows"),
   windows_subsystem = "windows"
 )]
 
-use tauri::{CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent, Manager, WindowEvent};
+use tauri::{CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent, Manager, WindowEvent, generate_handler};
 use winreg::enums::*;
 use winreg::RegKey;
 use std::path::PathBuf;
+mod firebird_config;
+use firebird_config::{load_firebird_config, FirebirdConfig};
 
 fn main() {
   let quit = CustomMenuItem::new("quit".to_string(), "Sair");
@@ -56,6 +57,7 @@ fn main() {
       set_startup();
       Ok(())
     })
+    .invoke_handler(generate_handler![get_firebird_config, firebird_config::save_firebird_config])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
@@ -67,4 +69,9 @@ fn set_startup() {
 
   let (key, _) = hkcu.create_subkey("Software\\Microsoft\\Windows\\CurrentVersion\\Run").unwrap();
   key.set_value("backup-client", &exe_path).unwrap();
+}
+
+#[tauri::command]
+fn get_firebird_config() -> Result<Vec<FirebirdConfig>, String> {
+  load_firebird_config()
 }
