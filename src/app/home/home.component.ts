@@ -1,4 +1,3 @@
-// src/app/home/home.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -25,7 +24,7 @@ export class HomeComponent {
 
     if (password === calculatedPassword.toString()) {
       this.accessMessage = "Acesso concedido!";
-      this.router.navigate(['/config-panel']);
+      this.router.navigate(['/dashboard']);
     } else {
       this.accessMessage = "Senha incorreta. Tente novamente.";
     }

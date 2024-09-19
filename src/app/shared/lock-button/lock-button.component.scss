@@ -1,0 +1,13 @@
+
+.lock-icon {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #e9ecef;
+    }
+}

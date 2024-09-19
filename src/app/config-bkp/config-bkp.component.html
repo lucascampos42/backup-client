@@ -1,0 +1,24 @@
+<div class="backup-container">
+    <div class="backup-header">Backup</div>
+    <div class="backup-content">
+        <p>Configure seu Backup:</p>
+    </div>
+</div>
+<div class="config-row">
+    <div *ngFor="let config of firebirdConfigs; let i = index" class="config-item">
+        <p>IP: {{ config.ip }}</p>
+        <p>Aliases: {{ config.alias }}</p>
+        <button (click)="removeConfig(i)">Remover</button>
+    </div>
+</div>
+<div class="add-config">
+    <h3>Adicionar Aliases:</h3>
+    <label for="newIp">IP:</label>
+    <input id="newIp" [(ngModel)]="newIp" />
+    <label for="newAlias">Alias:</label>
+    <input id="newAlias" [(ngModel)]="newAlias" />
+    <button (click)="addConfig()">
+        <span class="icon">💾</span> Adicionar
+    </button>
+</div>
+<app-menu />

@@ -1,0 +1,29 @@
+/* src/app/dashboard/dashboard.component.scss */
+.dashboard-content {
+    padding-bottom: 60px; /* Espaço para a barra de navegação */
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #e9ecef;
+    }
+}

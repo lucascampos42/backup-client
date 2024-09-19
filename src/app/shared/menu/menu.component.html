@@ -1,0 +1,7 @@
+<!-- src/app/shared/menu/menu.component.html -->
+<div class="bottom-nav">
+    <button class="nav-button" (click)="navigateTo('dashboard')">Deshboard</button>
+    <button class="nav-button" (click)="navigateTo('config-bkp')">Backup</button>
+    <button class="nav-button" (click)="navigateTo('report')">Relatório</button>
+    <app-lock-button [route]="'/'"></app-lock-button>
+</div>
