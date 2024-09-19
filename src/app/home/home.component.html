@@ -1,0 +1,20 @@
+<!-- src/app/home/home.component.html -->
+<div class="container">
+    <div class="acesso">
+        <a href="https://tauri.app" target="_blank">
+            <img src="/assets/logo.jpg" class="logo tauri" alt="Tauri logo" />
+        </a>
+        <h1>Assistente Maximus</h1>
+    </div>
+    <form class="row" (submit)="accessPanel($event, passwordInput.value)">
+        <input #passwordInput id="password-input" type="password" placeholder="senha do dia" />
+        <button type="submit" class="">Acessar o Panel</button>
+    </form>
+    <p>{{ accessMessage }}</p>
+    <div class="bkpbtn">
+        <button class="backup-button">
+            <img src="/assets/bkpbtn.ico" alt="Backup Icon" />
+        </button>
+        <h2>Backup agora</h2>
+    </div>
+</div>
