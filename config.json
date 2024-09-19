@@ -1,12 +1,8 @@
 {
   "firebird": [
     {
-      "ip": "192.168.1.100",
-      "alias": "mydatabase1"
-    },
-    {
-      "ip": "192.168.1.101",
-      "alias": "mydatabase2"
+      "ip": "localhost",
+      "alias": "EAGLEERP"
     }
   ]
 }

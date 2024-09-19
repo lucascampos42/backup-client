@@ -1,3 +1,30 @@
+.save-config-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+
+    &:hover {
+        background-color: #0056b3;
+    }
+
+    .icon {
+        margin-right: 5px;
+    }
+}
+.save-config-container {
+    display: flex;
+    justify-content: flex-end; /* Alinha o conteúdo à direita */
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+
 .config-row {
     display: flex;
     flex-wrap: wrap;
@@ -101,5 +128,42 @@
 
     &:hover {
         background-color: #0056b3;
+    }
+}
+
+.add-folder {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.add-folder label {
+    margin-bottom: 0;
+}
+
+.add-folder input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-folder button {
+    display: flex;
+    align-items: center;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #218838;
+    }
+
+    .icon {
+        margin-right: 5px;
     }
 }
