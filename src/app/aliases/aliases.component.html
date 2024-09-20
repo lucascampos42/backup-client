@@ -20,7 +20,7 @@
                 <div>
                     <input id="newAlias" placeholder="Alias" />
                 </div>
-                <button>
+                <button (click)="addConfig()">
                     <span class="icon">💾</span> Adicionar
                 </button>
             </div>
@@ -28,11 +28,11 @@
         <!-- Coluna para Diretórios de Backup -->
         <div class="col-6">
             <div class="add-folder">
-                <input id="newFolder" placeholder="Pasta" />
-                <button>
-                    <span class="icon">📁</span> Adicionar
+                <button (click)="selectDirectory()">
+                    <span class="icon">📁</span> Selecionar Pasta
                 </button>
             </div>
+            <p *ngIf="selectedDirectory">Pasta selecionada: {{ selectedDirectory }}</p>
         </div>
     </div>
     <div class="save-config-container">

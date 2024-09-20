@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../menu/menu.component';
+import { open } from '@tauri-apps/api/dialog';
 
 interface FirebirdConfig {
     ip: string;
@@ -10,19 +11,19 @@ interface FirebirdConfig {
 
 @Component({
     selector: 'app-aliases',
-    templateUrl: './aliases.component.html', // Verificar se o caminho está correto
+    templateUrl: './aliases.component.html',
     standalone: true,
     imports: [
         FormsModule,
         MenuComponent
     ],
-    styleUrls: ['./aliases.component.scss'] // Verificar se o caminho está correto
+    styleUrls: ['./aliases.component.scss']
 })
 export class AliasesComponent {
     firebirdConfigs: FirebirdConfig[] = [];
     newIp: string = '';
     newAlias: string = '';
-    newFolder: string = '';
+    selectedDirectory: string | null = null;
 
     addConfig() {
         if (this.newIp && this.newAlias) {
@@ -34,5 +35,15 @@ export class AliasesComponent {
 
     removeConfig(index: number) {
         this.firebirdConfigs.splice(index, 1);
+    }
+
+    async selectDirectory() {
+        const result = await open({
+            directory: true,
+            multiple: false
+        });
+        if (result) {
+            this.selectedDirectory = result as string;
+        }
     }
 }
