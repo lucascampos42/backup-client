@@ -7,14 +7,14 @@ $danger-color: #dc3545;
 $danger-hover-color: darken($danger-color, 10%);
 $success-color: #28a745;
 $success-hover-color: darken($success-color, 10%);
-$background-color: #f8f9fa;
+$background-color: #a6a6a6;
 $border-color: #ddd;
 
 @mixin button-styles($bg-color, $hover-color) {
   background-color: $bg-color;
   color: white;
   border: none;
-  padding: 10px 10px;
+  padding: 8px 8px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;

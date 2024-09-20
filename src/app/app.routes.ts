@@ -1,12 +1,18 @@
+// src/app/app.routes.ts
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { BackupComponent } from './backup/backup.component';
-import {DashboardComponent} from "./dashboard/dashboard.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AliasesComponent } from './aliases/aliases.component';
+import { LocaisComponent } from './locais/locais.component';
+import { NuvemComponent } from './nuvem/nuvem.component';
+import { RelatoriosComponent } from './relatorios/relatorios.component';
+import  { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'home', component: HomeComponent },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'backup', component: BackupComponent },
-
+    { path: 'aliases', component: AliasesComponent },
+    { path: 'local-destinations', component: LocaisComponent },
+    { path: 'cloud-destinations', component: NuvemComponent },
+    { path: 'reports', component: RelatoriosComponent },
+    { path: 'home', component: HomeComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

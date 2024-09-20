@@ -1,6 +1,7 @@
+// src/app/aliases/aliases.component.ts
 import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {MenuComponent} from "../menu/menu.component";
+import { FormsModule } from '@angular/forms';
+import { MenuComponent } from '../menu/menu.component';
 
 interface FirebirdConfig {
     ip: string;
@@ -8,16 +9,16 @@ interface FirebirdConfig {
 }
 
 @Component({
-    selector: 'app-backup',
-    templateUrl: './backup.component.html',
+    selector: 'app-aliases',
+    templateUrl: './aliases.component.html', // Verificar se o caminho está correto
     standalone: true,
     imports: [
         FormsModule,
         MenuComponent
     ],
-    styleUrls: ['./backup.component.scss']
+    styleUrls: ['./aliases.component.scss'] // Verificar se o caminho está correto
 })
-export class BackupComponent {
+export class AliasesComponent {
     firebirdConfigs: FirebirdConfig[] = [];
     newIp: string = '';
     newAlias: string = '';
@@ -34,6 +35,4 @@ export class BackupComponent {
     removeConfig(index: number) {
         this.firebirdConfigs.splice(index, 1);
     }
-
-
 }

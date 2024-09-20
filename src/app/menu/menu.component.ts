@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
+// src/app/menu/menu.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
-  standalone: true,
-  imports: [],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  standalone: true,
+  styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
+  currentRoute: string;
 
+  constructor(private router: Router) {
+    this.currentRoute = '';
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.urlAfterRedirects;
+      }
+    });
+  }
 }

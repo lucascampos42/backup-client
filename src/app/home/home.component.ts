@@ -25,9 +25,10 @@ export class HomeComponent {
     const calculatedPassword = 30676 * day * month + year;
 
     if (password === calculatedPassword.toString()) {
-      this.accessMessage = "Acesso concedido!";
-      this.router.navigate(['/config-panel']);
-      this.attemptCount = 0; // Reset attempt count on success
+      this.accessMessage = 'Acesso concedido. Redirecionando...';
+      setTimeout(() => {
+        this.router.navigate(['/dashboard']);
+      }, 1500); // Atraso de 2 segundos
     } else {
       this.attemptCount++;
       if (this.attemptCount >= 2) {

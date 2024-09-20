@@ -1,0 +1,42 @@
+/* src/app/menu/menu.component.scss */
+@import '../../styles.scss';
+
+.navbar {
+    background-color: $primary-color;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    img {
+        margin-right: 20px;
+    }
+}
+
+.nav-link {
+    cursor: pointer;
+    color: white;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:hover {
+        background-color: $hover-color;
+        color: #fff;
+    }
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+
+    &.active .nav-link {
+        background-color: $hover-color;
+        color: #fff;
+    }
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+.icon {
+    font-size: 20px;
+}
