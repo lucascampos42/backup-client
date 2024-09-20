@@ -2,42 +2,43 @@
 <app-menu></app-menu>
 <div class="p-3">
     <div class="row">
-        <!-- Coluna para Aliases -->
         <div class="col-6">
+            <div class="add-config">
+                <div>
+                    <input id="newIp" placeholder="IP" [(ngModel)]="newIp" />
+                </div>
+                <div>
+                    <input id="newAlias" placeholder="Alias" [(ngModel)]="newAlias" />
+                </div>
+                <button (click)="addAlias()">
+                    <span class="icon">💾</span> Adicionar
+                </button>
+            </div>
             <div class="config-row">
-                <div class="config-item">
-                    <p>IP: 192.168.0.1</p>
-                    <p>Alias: Servidor1</p>
-                    <button>
+                <div class="config-item" *ngFor="let config of aliasesConfig; let i = index">
+                    <p>IP: {{ config.ip }}</p>
+                    <p>Alias: {{ config.alias }}</p>
+                    <button (click)="removeAlias(i)">
                         <span class="icon">❌</span>
                     </button>
                 </div>
             </div>
-            <div class="add-config">
-                <div>
-                    <input id="newIp" placeholder="IP" />
-                </div>
-                <div>
-                    <input id="newAlias" placeholder="Alias" />
-                </div>
-                <button (click)="addConfig()">
-                    <span class="icon">💾</span> Adicionar
-                </button>
-            </div>
         </div>
-        <!-- Coluna para Diretórios de Backup -->
         <div class="col-6">
             <div class="add-folder">
+                <p>Adiciona pasta ao backup</p>
                 <button (click)="selectDirectory()">
                     <span class="icon">📁</span> Selecionar Pasta
                 </button>
             </div>
-            <p *ngIf="selectedDirectory">Pasta selecionada: {{ selectedDirectory }}</p>
+            <div class="config-row">
+                <div class="config-item" *ngFor="let config of directoriesConfig; let i = index">
+                    <p>Diretório: {{ config.directory }}</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="save-config-container">
-        <button class="save-config-button">
-            <span class="icon">💾</span> Salvar
-        </button>
-    </div>
+    <button (click)="saveConfigurations()" class="save-config-button">
+        <span class="icon">💾</span> Salvar
+    </button>
 </div>

@@ -21,15 +21,6 @@
     white-space: nowrap;
 }
 
-.save-config-container {
-    display: flex;
-    justify-content: flex-end;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
 .config-row {
     display: flex;
     flex-wrap: wrap;
@@ -59,7 +50,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .add-config label {
@@ -100,7 +91,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .add-folder label {
@@ -111,4 +102,26 @@
     padding: 5px;
     border: 1px solid $border-color;
     border-radius: 4px;
+}
+
+.save-config-button {
+    background-color: $success-color;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $success-hover-color;
+    }
+
+    .icon {
+        font-size: 18px;
+    }
 }

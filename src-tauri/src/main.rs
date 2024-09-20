@@ -7,6 +7,10 @@ use tauri::{CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent, Manager
 use winreg::enums::*;
 use winreg::RegKey;
 use std::path::PathBuf;
+mod aliases;
+mod directories;
+use aliases::{save_aliases, load_aliases};
+use directories::{save_directories, load_directories};
 
 fn main() {
   let quit = CustomMenuItem::new("quit".to_string(), "Sair");
@@ -55,6 +59,7 @@ fn main() {
       set_startup();
       Ok(())
     })
+    .invoke_handler(generate_handler![save_aliases, load_aliases, save_directories, load_directories])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }
