@@ -1,30 +1,29 @@
-<!-- src/app/aliases/aliases.component.html -->
 <app-menu></app-menu>
 <div class="p-3">
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <div class="add-config">
                 <div>
-                    <input id="newIp" placeholder="IP" [(ngModel)]="newIp" />
+                    <input id="newIp" placeholder="IP" [(ngModel)]="newIp" class="input-field" />
                 </div>
                 <div>
-                    <input id="newAlias" placeholder="Alias" [(ngModel)]="newAlias" />
+                    <input id="newAlias" placeholder="Alias" [(ngModel)]="newAlias" class="input-field" />
                 </div>
                 <button (click)="addAlias()">
                     <span class="icon">💾</span> Adicionar
                 </button>
             </div>
-            <div class="config-row">
+            <div class="">
                 <div class="config-item" *ngFor="let config of aliasesConfig; let i = index">
                     <p>IP: {{ config.ip }}</p>
                     <p>Alias: {{ config.alias }}</p>
-                    <button (click)="removeAlias(i)">
+                    <button (click)="removeAlias(i)" class="delete-button">
                         <span class="icon">❌</span>
                     </button>
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-7">
             <div class="add-folder">
                 <p>Adiciona pasta ao backup</p>
                 <button (click)="selectDirectory()">
@@ -33,7 +32,10 @@
             </div>
             <div class="config-row">
                 <div class="config-item" *ngFor="let config of directoriesConfig; let i = index">
-                    <p>Diretório: {{ config.directory }}</p>
+                    <p>SRC: {{ config.directory }}</p>
+                    <button (click)="removeDirectory(i)" class="delete-button">
+                        <span class="icon">❌</span>
+                    </button>
                 </div>
             </div>
         </div>

@@ -21,20 +21,13 @@
     white-space: nowrap;
 }
 
-.config-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
 .config-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px;
+    padding: 4px;
     border: 1px solid $border-color;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
     flex: 1 1 calc(50% - 10px);
     p {
         font-size: 16px;
@@ -47,7 +40,9 @@
 }
 
 .add-config {
-    display: flex;
+    > div {
+        padding-bottom: 8px;
+    }
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
@@ -88,7 +83,6 @@
 }
 
 .add-folder {
-    display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
@@ -124,4 +118,17 @@
     .icon {
         font-size: 18px;
     }
+}
+
+.input-field {
+    width: 100%; /* Ajuste o valor conforme necessário */
+    padding: 10px; /* Ajuste o valor conforme necessário */
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-size: 16px; /* Ajuste o valor conforme necessário */
+}
+.delete-button {
+    padding: 2px 2px; /* Ajuste o valor conforme necessário */
+    font-size: 12px; /* Ajuste o valor conforme necessário */
+    border-radius: 4px;
 }

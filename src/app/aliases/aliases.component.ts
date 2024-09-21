@@ -66,7 +66,6 @@ export class AliasesComponent implements OnInit {
     async saveConfigurations() {
         await this.saveAliases();
         await this.saveDirectories();
-        this.router.navigate(['/dashboard']);
     }
 
     async saveAliases() {
@@ -101,5 +100,8 @@ export class AliasesComponent implements OnInit {
         } catch (error) {
             console.error('Erro ao carregar diretórios:', error);
         }
+    }
+    removeDirectory(index: number): void {
+        this.directoriesConfig.splice(index, 1);
     }
 }
