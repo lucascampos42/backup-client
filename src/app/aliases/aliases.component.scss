@@ -4,21 +4,27 @@
 .save-config-button {
     @include button-styles($success-color, $success-hover-color);
     white-space: nowrap;
-}
+    background-color: $success-color;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    &:hover {
+        background-color: $success-hover-color;
+    }
 
-.config-item button {
-    @include button-styles($danger-color, $danger-hover-color);
-    white-space: nowrap;
-}
-
-.add-config button {
-    @include button-styles($secondary-color, $secondary-hover-color);
-    white-space: nowrap;
-}
-
-.add-folder button {
-    @include button-styles($secondary-color, $secondary-hover-color);
-    white-space: nowrap;
+    .icon {
+        font-size: 18px;
+    }
 }
 
 .config-item {
@@ -28,15 +34,20 @@
     border: 1px solid $border-color;
     border-radius: 6px;
     margin-bottom: 8px;
-    flex: 1 1 calc(50% - 10px);
+    gap: 10px; /* Ajuste o valor conforme necessário */
     p {
         font-size: 16px;
+        margin: 0;
+        flex: 1;
     }
 }
 
-.config-item p {
-    margin: 0;
-    flex: 1;
+.config-item button {
+    @include button-styles($danger-color, $danger-hover-color);
+    white-space: nowrap;
+    padding: 2px 2px; /* Ajuste o valor conforme necessário */
+    font-size: 12px; /* Ajuste o valor conforme necessário */
+    border-radius: 4px;
 }
 
 .add-config {
@@ -56,6 +67,32 @@
     padding: 5px;
     border: 1px solid $border-color;
     border-radius: 4px;
+}
+
+.add-config button {
+    @include button-styles($secondary-color, $secondary-hover-color);
+    white-space: nowrap;
+}
+
+.add-folder {
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-folder label {
+    margin-bottom: 0;
+}
+
+.add-folder input {
+    padding: 5px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+}
+
+.add-folder button {
+    @include button-styles($secondary-color, $secondary-hover-color);
+    white-space: nowrap;
 }
 
 .backup-container {
@@ -82,55 +119,10 @@
     white-space: nowrap;
 }
 
-.add-folder {
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.add-folder label {
-    margin-bottom: 0;
-}
-
-.add-folder input {
-    padding: 5px;
-    border: 1px solid $border-color;
-    border-radius: 4px;
-}
-
-.save-config-button {
-    background-color: $success-color;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: background-color 0.3s;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    &:hover {
-        background-color: $success-hover-color;
-    }
-
-    .icon {
-        font-size: 18px;
-    }
-}
-
 .input-field {
     width: 100%; /* Ajuste o valor conforme necessário */
     padding: 10px; /* Ajuste o valor conforme necessário */
     border: 1px solid $border-color;
     border-radius: 4px;
     font-size: 16px; /* Ajuste o valor conforme necessário */
-}
-.delete-button {
-    padding: 2px 2px; /* Ajuste o valor conforme necessário */
-    font-size: 12px; /* Ajuste o valor conforme necessário */
-    border-radius: 4px;
 }

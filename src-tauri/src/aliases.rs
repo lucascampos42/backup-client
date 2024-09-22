@@ -7,6 +7,7 @@ use std::path::PathBuf;
 pub struct AliasConfig {
     pub ip: String,
     pub alias: String,
+    pub is_fiscal: bool,
 }
 
 fn get_aliases_path() -> PathBuf {

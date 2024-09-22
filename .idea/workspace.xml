@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/services/notyf.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/backup_directory.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src-tauri/src/destinos.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/json/aliases.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/aliases.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/aliases.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/aliases.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/aliases/aliases.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/aliases/aliases.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/aliases/aliases.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/destino/destino.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/destino/destino.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726868608923</updated>
       <workItem from="1726868612000" duration="1584000" />
-      <workItem from="1726872257428" duration="14363000" />
+      <workItem from="1726872257428" duration="16225000" />
     </task>
     <servers />
   </component>

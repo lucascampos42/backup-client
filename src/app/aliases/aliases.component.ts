@@ -10,6 +10,7 @@ import { NotyfService } from '../services/notyf.service';
 interface AliasConfig {
     ip: string;
     alias: string;
+    is_fiscal: boolean; // Corrige o nome do campo para snake case
 }
 
 interface DirectoryConfig {
@@ -32,6 +33,7 @@ export class AliasesComponent implements OnInit {
     directoriesConfig: DirectoryConfig[] = [];
     newIp: string = '';
     newAlias: string = '';
+    newIsFiscal: boolean = false;
     selectedDirectory: string | null = null;
 
     constructor(private router: Router, private notyfService: NotyfService) {}
@@ -43,9 +45,10 @@ export class AliasesComponent implements OnInit {
 
     addAlias() {
         if (this.newIp && this.newAlias) {
-            this.aliasesConfig.push({ ip: this.newIp, alias: this.newAlias });
+            this.aliasesConfig.push({ ip: this.newIp, alias: this.newAlias, is_fiscal: this.newIsFiscal });
             this.newIp = '';
             this.newAlias = '';
+            this.newIsFiscal = false;
         }
     }
 

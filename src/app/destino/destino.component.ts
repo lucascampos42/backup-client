@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import { open } from "@tauri-apps/api/dialog";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NotyfService } from '../services/notyf.service';
+import { invoke } from '@tauri-apps/api/tauri';
 
 interface DirectoryConfig {
   directory: string;
@@ -20,7 +21,7 @@ interface DirectoryConfig {
   templateUrl: './destino.component.html',
   styleUrl: './destino.component.scss'
 })
-export class DestinoComponent {
+export class DestinoComponent implements OnInit {
   directoriesConfig: DirectoryConfig[] = [];
   selectedDirectory: string | null = null;
   clientHash: string = '';
@@ -41,6 +42,10 @@ export class DestinoComponent {
 
   constructor(private notyfService: NotyfService) {}
 
+  ngOnInit() {
+    this.loadBackupDirectory();
+  }
+
   async selectDirectory() {
     const result = await open({
       directory: true,
@@ -52,7 +57,25 @@ export class DestinoComponent {
     }
   }
 
+  async saveBackupDirectory() {
+    try {
+      await invoke('save_backup_directory', { directory: this.selectedDirectory });
+      this.notyfService.success('Diretório de backup salvo com sucesso!');
+    } catch (error) {
+      this.notyfService.error('Erro ao salvar diretório de backup:');
+    }
+  }
+
+  async loadBackupDirectory() {
+    try {
+      this.selectedDirectory = await invoke('load_backup_directory');
+    } catch (error) {
+      console.error('Erro ao carregar diretório de backup:', error);
+    }
+  }
+
   saveSettings() {
+    this.saveBackupDirectory();
     this.notyfService.success('Configurações salvas');
   }
 }
