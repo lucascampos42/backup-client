@@ -1,4 +1,3 @@
-<!-- src/app/destino/destino.component.html -->
 <app-menu></app-menu>
 <div class="container">
     <h2 class="backup-title">Backup Local</h2>
@@ -17,50 +16,62 @@
     </div>
 
     <h2 class="backup-title mt-5">Backup em Nuvem</h2>
-    <div class="backup-settings">
-        <div class="switch-container">
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-            </label>
-            <label class="description">BKP em Nuvem</label>
+    <div class="row">
+        <div class="col-6">
+            <div class="backup-settings">
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <label class="description">BKP em Nuvem</label>
+                </div>
+            </div>
+            <div class="backup-settings">
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="backupDiurno">
+                        <span class="slider"></span>
+                    </label>
+                    <label class="description">Diurno</label>
+                </div>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="backupNoturno">
+                        <span class="slider"></span>
+                    </label>
+                    <label class="description">Noturno</label>
+                </div>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="backupSabado">
+                        <span class="slider"></span>
+                    </label>
+                    <label class="description">Sábado</label>
+                </div>
+                <div class="switch-container">
+                    <label class="switch">
+                        <input type="checkbox" [(ngModel)]="backupDomingo">
+                        <span class="slider"></span>
+                    </label>
+                    <label class="description">Domingo</label>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="backup-settings">
-        <select [(ngModel)]="backupInterval" class="backup-interval-select">
-            <option *ngFor="let interval of intervals" [value]="interval.value">{{ interval.label }}</option>
-        </select>
-        <input type="text" [(ngModel)]="clientHash" placeholder="Hash de Identificação do Cliente" class="client-hash-input">
-        <input type="text" [(ngModel)]="clientCnpj" placeholder="CNPJ do Cliente" class="client-cnpj-input">
-    </div>
-    <div class="backup-settings">
-        <div class="switch-container">
-            <label class="switch">
-                <input type="checkbox" [(ngModel)]="backupDiurno">
-                <span class="slider"></span>
-            </label>
-            <label class="description">Diurno</label>
-        </div>
-        <div class="switch-container">
-            <label class="switch">
-                <input type="checkbox" [(ngModel)]="backupNoturno">
-                <span class="slider"></span>
-            </label>
-            <label class="description">Noturno</label>
-        </div>
-        <div class="switch-container">
-            <label class="switch">
-                <input type="checkbox" [(ngModel)]="backupSabado">
-                <span class="slider"></span>
-            </label>
-            <label class="description">Sábado</label>
-        </div>
-        <div class="switch-container">
-            <label class="switch">
-                <input type="checkbox" [(ngModel)]="backupDomingo">
-                <span class="slider"></span>
-            </label>
-            <label class="description">Domingo</label>
+        <div class="col-6">
+            <div class="backup-settings">
+                <div class="input-group">
+                    <select [(ngModel)]="backupInterval" class="backup-interval-select">
+                        <option *ngFor="let interval of intervals" [value]="interval.value">{{ interval.label }}</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="clientCnpj" placeholder="CNPJ do Cliente" class="client-cnpj-input">
+                </div>
+                <div class="input-group">
+                    <input type="text" [(ngModel)]="clientHash" placeholder="Hash de Identificação do Cliente" class="client-hash-input">
+                </div>
+            </div>
         </div>
     </div>
     <button class="save-button" (click)="saveSettings()">
