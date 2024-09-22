@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
+import { NotyfService } from '../services/notyf.service';
 
 interface AliasConfig {
     ip: string;
@@ -33,7 +34,7 @@ export class AliasesComponent implements OnInit {
     newAlias: string = '';
     selectedDirectory: string | null = null;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private notyfService: NotyfService) {}
 
     ngOnInit() {
         this.loadAliases();
@@ -66,14 +67,15 @@ export class AliasesComponent implements OnInit {
     async saveConfigurations() {
         await this.saveAliases();
         await this.saveDirectories();
+        this.notyfService.success('Configurações salvas com sucesso!');
     }
 
     async saveAliases() {
         try {
             await invoke('save_aliases', { configs: this.aliasesConfig });
-            console.log('Aliases salvos com sucesso!');
+            this.notyfService.success('Aliases salvos com sucesso!');
         } catch (error) {
-            console.error('Erro ao salvar aliases:', error);
+            this.notyfService.error('Erro ao salvar aliases:');
         }
     }
 
@@ -88,9 +90,9 @@ export class AliasesComponent implements OnInit {
     async saveDirectories() {
         try {
             await invoke('save_directories', { configs: this.directoriesConfig });
-            console.log('Diretórios salvos com sucesso!');
+            this.notyfService.success('Diretórios salvos com sucesso!');
         } catch (error) {
-            console.error('Erro ao salvar diretórios:', error);
+            this.notyfService.error('Erro ao salvar diretórios:');
         }
     }
 
@@ -101,6 +103,7 @@ export class AliasesComponent implements OnInit {
             console.error('Erro ao carregar diretórios:', error);
         }
     }
+
     removeDirectory(index: number): void {
         this.directoriesConfig.splice(index, 1);
     }

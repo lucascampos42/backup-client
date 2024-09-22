@@ -1,9 +1,9 @@
-// src/app/destino/destino.component.ts
 import { Component } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import { open } from "@tauri-apps/api/dialog";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NotyfService } from '../services/notyf.service';
 
 interface DirectoryConfig {
   directory: string;
@@ -39,6 +39,8 @@ export class DestinoComponent {
     { value: 6, label: 'Intervalos de 6h' }
   ];
 
+  constructor(private notyfService: NotyfService) {}
+
   async selectDirectory() {
     const result = await open({
       directory: true,
@@ -51,7 +53,6 @@ export class DestinoComponent {
   }
 
   saveSettings() {
-    // Lógica para salvar as configurações
-    console.log('Configurações salvas');
+    this.notyfService.success('Configurações salvas');
   }
 }
