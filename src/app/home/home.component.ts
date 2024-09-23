@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotyfService } from '../services/notyf.service';
+import { invoke } from '@tauri-apps/api/tauri';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,15 @@ export class HomeComponent {
       } else {
         this.accessMessage = "Senha incorreta. Tente novamente.";
       }
+    }
+  }
+
+  async backupNow() {
+    try {
+      await invoke('backup_aliases');
+      this.notyfService.success('Backup realizado com sucesso!');
+    } catch (error) {
+      this.notyfService.error('Erro ao realizar backup: ' + error);
     }
   }
 }

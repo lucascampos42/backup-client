@@ -9,7 +9,7 @@ import {DestinoComponent} from "./destino/destino.component";
 export const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'aliases', component: AliasesComponent },
-    { path: 'destinos', component: DestinoComponent },
+    { path: 'destino', component: DestinoComponent },
     { path: 'reports', component: RelatoriosComponent },
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }

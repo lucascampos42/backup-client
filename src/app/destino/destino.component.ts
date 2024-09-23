@@ -22,7 +22,6 @@ interface DirectoryConfig {
   styleUrl: './destino.component.scss'
 })
 export class DestinoComponent implements OnInit {
-  directoriesConfig: DirectoryConfig[] = [];
   selectedDirectory: string | null = null;
   clientHash: string = '';
   clientCnpj: string = '';
@@ -53,22 +52,27 @@ export class DestinoComponent implements OnInit {
     });
     if (result) {
       this.selectedDirectory = result as string;
-      this.directoriesConfig.push({ directory: this.selectedDirectory });
     }
   }
 
   async saveBackupDirectory() {
+    if (!this.selectedDirectory) {
+      this.notyfService.error('Nenhum diretório selecionado');
+      return;
+    }
+
     try {
       await invoke('save_backup_directory', { directory: this.selectedDirectory });
       this.notyfService.success('Diretório de backup salvo com sucesso!');
     } catch (error) {
-      this.notyfService.error('Erro ao salvar diretório de backup:');
+      this.notyfService.error('Erro ao salvar diretório de backup: ' + error);
     }
   }
 
   async loadBackupDirectory() {
     try {
-      this.selectedDirectory = await invoke('load_backup_directory');
+      const directory = await invoke<string>('load_backup_directory');
+      this.selectedDirectory = directory;
     } catch (error) {
       console.error('Erro ao carregar diretório de backup:', error);
     }

@@ -22,11 +22,13 @@
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/assets"],
             "scripts": [
-                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/notyf/notyf.min.js"
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/notyf/notyf.min.css"
             ]
           },
           "configurations": {
