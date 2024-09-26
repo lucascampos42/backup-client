@@ -5,31 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/config.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/aliases.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/backup_directory.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/directories.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/sw.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.bin" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/aliases.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/directories.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/aliases.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/destinos.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/directories.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/config.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/config.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/aliases/aliases.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/origem/origem.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/origem/origem.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/aliases/aliases.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/origem/origem.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/destino/destino.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/destino/destino.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/menu/menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/background.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/background.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/config.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726868608923</updated>
       <workItem from="1726868612000" duration="1584000" />
-      <workItem from="1726872257428" duration="37325000" />
+      <workItem from="1726872257428" duration="57111000" />
     </task>
     <servers />
   </component>

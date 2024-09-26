@@ -1,16 +1,28 @@
-use std::process::Command;
+use tauri::command;
+use crate::config::{load_config, save_config, Destination, BackupConfig};
 
-pub fn backup_database() {
-    let output = Command::new("gbak")
-        .arg("-b")
-        .arg("source_database.fdb")
-        .arg("backup_file.fbk")
-        .output()
-        .expect("Failed to execute gbak");
+#[command]
+pub fn backup_now() -> Result<(), String> {
+    // Implementação da função backup_now
+    Ok(())
+}
 
-    if output.status.success() {
-        println!("Backup successful");
-    } else {
-        eprintln!("Backup failed: {}", String::from_utf8_lossy(&output.stderr));
-    }
+#[command]
+pub fn save_backup_directory(directory: String) -> Result<(), String> {
+    let mut config = load_config()?;
+    config.destino.push(Destination { directory });
+    println!("Saving backup directory: {:?}", config);
+    save_config(config)?;
+    println!("Backup directory saved successfully");
+    Ok(())
+}
+
+#[command]
+pub fn save_backup_config(backup_config: BackupConfig) -> Result<(), String> {
+    let mut config = load_config()?;
+    config.backup_config = Some(backup_config);
+    println!("Saving backup config: {:?}", config);
+    save_config(config)?;
+    println!("Backup config saved successfully");
+    Ok(())
 }

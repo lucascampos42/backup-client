@@ -26,16 +26,16 @@ interface Config {
 
 @Component({
     selector: 'app-aliases',
-    templateUrl: './aliases.component.html',
+    templateUrl: './origem.component.html',
     standalone: true,
     imports: [
         FormsModule,
         CommonModule,
         MenuComponent
     ],
-    styleUrls: ['./aliases.component.scss']
+    styleUrls: ['./origem.component.scss']
 })
-export class AliasesComponent implements OnInit {
+export class OrigemComponent implements OnInit {
     aliasesConfig: AliasConfig[] = [];
     directoriesConfig: DirectoryConfig[] = [];
     newIp: string = '';

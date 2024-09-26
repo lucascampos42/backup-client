@@ -43,7 +43,7 @@ export class HomeComponent {
 
   async backupNow() {
     try {
-      await invoke('backup_aliases');
+      await invoke('backup_now');
       this.notyfService.success('Backup realizado com sucesso!');
     } catch (error) {
       this.notyfService.error('Erro ao realizar backup: ' + error);

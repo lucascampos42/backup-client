@@ -1,17 +1,16 @@
-use tauri::{
-    CustomMenuItem, SystemTray, SystemTrayMenu, SystemTrayEvent, Manager, WindowEvent, generate_handler
-};
+use tauri::{CustomMenuItem, SystemTrayMenu, SystemTray, SystemTrayEvent, WindowEvent, Manager, generate_handler};
 use winreg::{RegKey, enums::HKEY_CURRENT_USER};
-use std::path::{Path, PathBuf};
-use notify::{Watcher, RecursiveMode, RecommendedWatcher, Config, EventKind};
-use std::sync::mpsc::{channel, RecvError};
+use std::path::{PathBuf, Path};
+use std::sync::mpsc::channel;
+use notify::{RecommendedWatcher, RecursiveMode, Config, EventKind, Watcher};
+
 use std::thread;
 
 mod config;
 mod backup;
 
-use config::{save_config, load_config, load_aliases, load_directories, load_backup_directory, backup_aliases, save_backup_directory};
-use backup::backup_database;
+use config::{load_config, save_config};
+use backup::{backup_now, save_backup_config, save_backup_directory};
 
 fn main() {
     let quit = CustomMenuItem::new("quit".to_string(), "Sair");
@@ -62,7 +61,7 @@ fn main() {
             Ok(())
         })
         .invoke_handler(generate_handler![
-            save_config, load_config, load_aliases, load_directories, load_backup_directory, save_backup_directory, backup_aliases
+            backup_now, save_backup_config, load_config, save_config, save_backup_directory
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

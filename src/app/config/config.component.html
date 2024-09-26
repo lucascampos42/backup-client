@@ -1,0 +1,20 @@
+<app-menu></app-menu>
+<div class="p-5">
+    <h3>Configuração do Backup</h3>
+    <div>
+        <label for="gbakPath">Caminho do GBAK:</label>
+        <input id="gbakPath" [(ngModel)]="gbakPath" placeholder="Caminho do GBAK" />
+        <button (click)="selectGbakPath()">Selecionar</button>
+    </div>
+    <div>
+        <label for="username">Usuário:</label>
+        <input id="username" [(ngModel)]="username" placeholder="Usuário" />
+    </div>
+    <div>
+        <label for="password">Senha:</label>
+        <input id="password" [(ngModel)]="password" type="password" placeholder="Senha" />
+    </div>
+    <button (click)="saveBackupConfig()" class="save-config-button">
+        <span class="icon">💾</span> Salvar Configuração
+    </button>
+</div>
