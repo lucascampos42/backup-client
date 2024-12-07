@@ -34,9 +34,9 @@ export class HomeComponent {
     } else {
       this.attemptCount++;
       if (this.attemptCount >= 2) {
-        this.accessMessage = "Painel só pode ser usado por técnicos.";
+        this.notyfService.error( 'Painel só pode ser usado por técnicos.');
       } else {
-        this.accessMessage = "Senha incorreta. Tente novamente.";
+        this.notyfService.error('Senha incorreta. Tente novamente.');
       }
     }
   }
