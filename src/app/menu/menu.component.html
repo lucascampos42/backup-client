@@ -1,23 +1,19 @@
 <!-- src/app/menu/menu.component.html -->
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <img src="/assets/logo.png" alt="Logo" width="40" height="40">
         <div class="navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item" [class.active]="currentRoute === '/dashboard'">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item" [class.active]="currentRoute === '/aliases'">
-                    <a class="nav-link" href="/aliases">Aliases</a>
+                    <a class="nav-link" href="/origem">Origem</a>
                 </li>
-                <li class="nav-item" [class.active]="currentRoute === '/local-destinations'">
-                    <a class="nav-link" href="/local-destinations">Destinos Locais</a>
-                </li>
-                <li class="nav-item" [class.active]="currentRoute === '/cloud-destinations'">
-                    <a class="nav-link" href="/cloud-destinations">Destinos na Nuvem</a>
+                <li class="nav-item" [class.active]="currentRoute === '/destino'">
+                    <a class="nav-link" href="/destino"> Destino</a>
                 </li>
                 <li class="nav-item" [class.active]="currentRoute === '/reports'">
-                    <a class="nav-link" href="/reports">Relatórios</a>
+                    <a class="nav-link" href="/config">Configuração</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

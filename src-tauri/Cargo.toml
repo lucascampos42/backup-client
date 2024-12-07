@@ -1,21 +1,26 @@
 [package]
 name = "backup-client"
-version = "0.1.0"
+version = "0.2.1"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["CodesDevs"]
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
 tauri-build = { version = "1", features = [] }
+cc = "1.0"
 
 [dependencies]
-winreg = "0.10"
-tauri = { version = "1", features = ["system-tray", "api-all"] }
+tauri = { version = "1.0", features = ["api-all", "system-tray"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+dirs = "5.0.1"
+notify = "5.0"
+winreg = "0.10"
+
 
 [features]
-# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
 custom-protocol = ["tauri/custom-protocol"]
+
+[package.metadata.tauri]
+windows-attributes = { window = true }
+build = "build.rs"

@@ -1,0 +1,11 @@
+
+    {
+      "destino": [],
+      "aliases": [{"eagleerp": "localhost"}],
+      "backup_config": {
+        "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+        "username": "sysdba",
+        "password": "masterkey"
+      }
+    }
+    
