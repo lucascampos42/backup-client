@@ -3,82 +3,94 @@ use std::fs::{self, File};
 use std::io::{self, Read, Write};
 use std::path::PathBuf;
 use tauri::command;
-use bincode;
+use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct BackupConfig {
-    pub gbak_path: String,
-    pub username: String,
-    pub password: String,
+  pub gbak_path: String,
+  pub username: String,
+  pub password: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
-    pub destino: Vec<Destination>,
-    pub aliases: Vec<Alias>,
-    pub backup_config: Option<BackupConfig>,
+  pub destino: Vec<Destination>,
+  pub aliases: Vec<Alias>,
+  pub backup_config: Option<BackupConfig>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Destination {
-    pub directory: String,
+  pub directory: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Alias {
-    pub alias: String,
+  pub alias: String,
 }
 
 #[command]
 pub fn load_config() -> Result<Config, String> {
-    let config_path = config_path().map_err(|e| format!("Failed to get config path: {}", e))?;
-    println!("Loading config from: {:?}", config_path);
+  // Obtém o caminho do arquivo de configuração
+  let config_path = config_path().map_err(|e| format!("Falha ao obter o caminho do arquivo de configuração: {}", e))?;
+  println!("Carregando configuração de: {:?}", config_path);
 
-    if !config_path.exists() {
-        println!("Config file does not exist, creating a new one.");
-        File::create(&config_path).map_err(|e| format!("Failed to create config file: {}", e))?;
-    }
+  // Verifica se o arquivo de configuração existe
+  if !config_path.exists() {
+    println!("Arquivo de configuração não existe, criando um novo.");
+    File::create(&config_path).map_err(|e| format!("Falha ao criar o arquivo de configuração: {}", e))?;
+  }
 
-    let mut file = File::open(&config_path)
-        .map_err(|e| format!("Failed to open config file: {}", e))?;
-    let mut contents = Vec::new();
-    file.read_to_end(&mut contents)
-        .map_err(|e| format!("Failed to read config file: {}", e))?;
+  // Abre o arquivo de configuração
+  let mut file = File::open(&config_path)
+    .map_err(|e| format!("Falha ao abrir o arquivo de configuração: {}", e))?;
+  let mut contents = String::new();
+  // Lê o conteúdo do arquivo de configuração
+  file.read_to_string(&mut contents)
+    .map_err(|e| format!("Falha ao ler o arquivo de configuração: {}", e))?;
 
-    println!("Config file contents: {:?}", contents);
+  println!("Conteúdo do arquivo de configuração: {:?}", contents);
 
-    if contents.is_empty() {
-        println!("Config file is empty, returning default config.");
-        return Ok(Config {
-            destino: Vec::new(),
-            aliases: Vec::new(),
-            backup_config: None,
-        });
-    }
+  // Verifica se o arquivo de configuração está vazio
+  if contents.is_empty() {
+    println!("Arquivo de configuração está vazio, retornando configuração padrão.");
+    return Ok(Config {
+      destino: Vec::new(),
+      aliases: Vec::new(),
+      backup_config: None,
+    });
+  }
 
-    let config: Config = bincode::deserialize(&contents)
-        .map_err(|e| format!("Failed to parse config file: {}", e))?;
-    println!("Config loaded successfully: {:?}", config);
-    Ok(config)
+  // Faz o parse do conteúdo do arquivo de configuração
+  let config: Config = serde_json::from_str(&contents)
+    .map_err(|e| format!("Falha ao analisar o arquivo de configuração: {}", e))?;
+  println!("Configuração carregada com sucesso: {:?}", config);
+  Ok(config)
 }
 
 #[command]
 pub fn save_config(config: Config) -> Result<(), String> {
-    let contents = bincode::serialize(&config)
-        .map_err(|e| format!("Failed to serialize config: {}", e))?;
-    let config_path = config_path().map_err(|e| format!("Failed to get config path: {}", e))?;
-    let config_dir = config_path.parent().ok_or("Failed to get config directory")?;
-    fs::create_dir_all(config_dir).map_err(|e| format!("Failed to create config directory: {}", e))?;
-    let mut file = File::create(&config_path)
-        .map_err(|e| format!("Failed to create config file: {}", e))?;
-    file.write_all(&contents)
-        .map_err(|e| format!("Failed to write config file: {}", e))?;
-    println!("Config saved successfully to: {:?}", config_path);
-    Ok(())
+  // Serializa a configuração para uma string JSON
+  let contents = serde_json::to_string(&config)
+    .map_err(|e| format!("Falha ao serializar a configuração: {}", e))?;
+  // Obtém o caminho do arquivo de configuração
+  let config_path = config_path().map_err(|e| format!("Falha ao obter o caminho do arquivo de configuração: {}", e))?;
+  let config_dir = config_path.parent().ok_or("Falha ao obter o diretório de configuração")?;
+  // Cria o diretório de configuração, se necessário
+  fs::create_dir_all(config_dir).map_err(|e| format!("Falha ao criar o diretório de configuração: {}", e))?;
+  // Cria o arquivo de configuração
+  let mut file = File::create(&config_path)
+    .map_err(|e| format!("Falha ao criar o arquivo de configuração: {}", e))?;
+  // Escreve a configuração serializada no arquivo
+  file.write_all(contents.as_bytes())
+    .map_err(|e| format!("Falha ao escrever no arquivo de configuração: {}", e))?;
+  println!("Configuração salva com sucesso em: {:?}", config_path);
+  Ok(())
 }
 
-fn config_path() -> Result<PathBuf, io::Error> {
-    let mut path = std::env::current_dir()?;
-    path.push("config.bin");
-    Ok(path)
+pub fn config_path() -> Result<PathBuf, io::Error> {
+  // Obtém o diretório atual e adiciona "config.json" ao caminho
+  let mut path = std::env::current_dir()?;
+  path.push("config.json");
+  Ok(path)
 }
