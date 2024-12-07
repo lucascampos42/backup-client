@@ -1,1 +1,11 @@
-{"destino":[],"aliases":[{"alias":"123456"},{"alias":"1223"}],"backup_config":{"gbak_path":"C:\\Users\\bhluc\\AppData\\Local\\LM-Studio\\LM Studio.exe","username":"1","password":"1"}}
+
+    {
+      "destino": [],
+      "aliases": [{"eagleerp": "localhost"}],
+      "backup_config": {
+        "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+        "username": "sysdba",
+        "password": "masterkey"
+      }
+    }
+    

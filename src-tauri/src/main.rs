@@ -1,4 +1,5 @@
-use tauri::{generate_handler};
+use std::fs;
+use tauri::{generate_handler, App};
 
 mod config;
 mod backup;
@@ -8,8 +9,29 @@ use config::{load_config, save_config};
 use backup::{backup_now, save_backup_config, save_backup_directory};
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 
-fn initialize_app(_app: &tauri::App) {
-  // Implementação da função
+fn initialize_app(_app: &App) {
+  // Verifica se o arquivo de configuração JSON existe no diretório atual
+  let config_path = std::env::current_dir().unwrap().join("config.json");
+  println!("Config path: {:?}", config_path); // Log the config path
+
+  if !config_path.exists() {
+    let default_config = r#"
+    {
+      "destino": [],
+      "aliases": [{"eagleerp": "localhost"}],
+      "backup_config": {
+        "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+        "username": "sysdba",
+        "password": "masterkey"
+      }
+    }
+    "#;
+    fs::create_dir_all(config_path.parent().unwrap()).unwrap();
+    fs::write(config_path, default_config).unwrap();
+    println!("Config file created"); // Log file creation
+  } else {
+    println!("Config file already exists"); // Log if file already exists
+  }
 }
 
 fn main() {

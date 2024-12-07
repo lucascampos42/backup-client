@@ -33,38 +33,16 @@ pub struct Alias {
 pub fn load_config() -> Result<Config, String> {
   // Obtém o caminho do arquivo de configuração
   let config_path = config_path().map_err(|e| format!("Falha ao obter o caminho do arquivo de configuração: {}", e))?;
-  println!("Carregando configuração de: {:?}", config_path);
-
-  // Verifica se o arquivo de configuração existe
-  if !config_path.exists() {
-    println!("Arquivo de configuração não existe, criando um novo.");
-    File::create(&config_path).map_err(|e| format!("Falha ao criar o arquivo de configuração: {}", e))?;
-  }
-
   // Abre o arquivo de configuração
   let mut file = File::open(&config_path)
     .map_err(|e| format!("Falha ao abrir o arquivo de configuração: {}", e))?;
+  // Lê o conteúdo do arquivo
   let mut contents = String::new();
-  // Lê o conteúdo do arquivo de configuração
   file.read_to_string(&mut contents)
     .map_err(|e| format!("Falha ao ler o arquivo de configuração: {}", e))?;
-
-  println!("Conteúdo do arquivo de configuração: {:?}", contents);
-
-  // Verifica se o arquivo de configuração está vazio
-  if contents.is_empty() {
-    println!("Arquivo de configuração está vazio, retornando configuração padrão.");
-    return Ok(Config {
-      destino: Vec::new(),
-      aliases: Vec::new(),
-      backup_config: None,
-    });
-  }
-
-  // Faz o parse do conteúdo do arquivo de configuração
+  // Deserializa o conteúdo do arquivo para a configuração
   let config: Config = serde_json::from_str(&contents)
-    .map_err(|e| format!("Falha ao analisar o arquivo de configuração: {}", e))?;
-  println!("Configuração carregada com sucesso: {:?}", config);
+    .map_err(|e| format!("Falha ao deserializar o arquivo de configuração: {}", e))?;
   Ok(config)
 }
 

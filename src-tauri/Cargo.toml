@@ -1,8 +1,8 @@
 [package]
 name = "backup-client"
-version = "0.2.0"
+version = "0.2.1"
 description = "A Tauri App"
-authors = ["you"]
+authors = ["CodesDevs"]
 edition = "2021"
 
 [build-dependencies]
@@ -22,4 +22,5 @@ winreg = "0.10"
 custom-protocol = ["tauri/custom-protocol"]
 
 [package.metadata.tauri]
+windows-attributes = { window = true }
 build = "build.rs"

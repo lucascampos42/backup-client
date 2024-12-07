@@ -34,7 +34,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.backup-client.app",
+      "identifier": "backup-client",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -46,7 +46,7 @@
           "language": "pt-BR"
         },
         "nsis": {
-          "installerIcon": "icons/installerIcon.ico"
+          "installerIcon": "icons/icon.ico"
         }
       }
     },
