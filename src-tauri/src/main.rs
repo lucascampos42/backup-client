@@ -1,5 +1,5 @@
+use tauri::{command, generate_handler, App};
 use std::fs;
-use tauri::{generate_handler, App};
 
 mod config;
 mod backup;
@@ -10,9 +10,8 @@ use backup::{backup_now, save_backup_config, save_backup_directory};
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 
 fn initialize_app(_app: &App) {
-  // Verifica se o arquivo de configuração JSON existe no diretório atual
   let config_path = std::env::current_dir().unwrap().join("config.json");
-  println!("Config path: {:?}", config_path); // Log the config path
+  println!("Config path: {:?}", config_path);
 
   if !config_path.exists() {
     let default_config = r#"
@@ -28,17 +27,15 @@ fn initialize_app(_app: &App) {
     "#;
     fs::create_dir_all(config_path.parent().unwrap()).unwrap();
     fs::write(config_path, default_config).unwrap();
-    println!("Config file created"); // Log file creation
+    println!("Config file created");
   } else {
-    println!("Config file already exists"); // Log if file already exists
+    println!("Config file already exists");
   }
 }
 
 fn main() {
-  // Configura o sistema de bandeja (ícone na área de notificação)
   let system_tray = build_system_tray();
 
-  // Inicia o aplicativo Tauri com a configuração da bandeja, manipuladores de eventos e comandos
   tauri::Builder::default()
     .system_tray(system_tray)
     .on_system_tray_event(handle_system_tray_event)
@@ -47,7 +44,20 @@ fn main() {
       initialize_app(app);
       Ok(())
     })
-    .invoke_handler(generate_handler![backup_now, save_backup_config, load_config, save_config, save_backup_directory])
+    .invoke_handler(generate_handler![
+      backup_now,
+      save_backup_config,
+      load_config,
+      save_config,
+      save_backup_directory,
+      validate_password
+    ])
     .run(tauri::generate_context!())
     .expect("Erro ao executar a aplicação Tauri");
+}
+
+#[command]
+fn validate_password(password: String, day: u32, month: u32, year: i32) -> bool {
+    let calculated_password = 30676 * day * month + year as u32;
+    password == calculated_password.to_string()
 }
