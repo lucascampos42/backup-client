@@ -11,15 +11,14 @@ interface DirectoryConfig {
 }
 
 @Component({
-  selector: 'app-destino',
-  standalone: true,
-  imports: [
-    MenuComponent,
-    FormsModule,
-    CommonModule
-  ],
-  templateUrl: './destino.component.html',
-  styleUrl: './destino.component.scss'
+    selector: 'app-destino',
+    imports: [
+        MenuComponent,
+        FormsModule,
+        CommonModule
+    ],
+    templateUrl: './destino.component.html',
+    styleUrl: './destino.component.scss'
 })
 export class DestinoComponent implements OnInit {
   selectedDirectory: string | null = null;

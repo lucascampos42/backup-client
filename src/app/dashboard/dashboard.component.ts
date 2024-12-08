@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  standalone: true,
-  imports: [MenuComponent]
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
+    imports: [MenuComponent]
 })
 export class DashboardComponent {
   constructor(private router: Router) {}

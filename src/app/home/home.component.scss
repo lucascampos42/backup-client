@@ -1,5 +1,4 @@
-/* src/app/home/home.component.scss */
-@import '../../styles';
+@use '../../styles' as *;
 
 body, html {
     overflow-x: hidden;

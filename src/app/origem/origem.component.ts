@@ -27,7 +27,6 @@ interface Config {
 @Component({
     selector: 'app-aliases',
     templateUrl: './origem.component.html',
-    standalone: true,
     imports: [
         FormsModule,
         CommonModule,
