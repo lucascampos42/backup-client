@@ -1,13 +1,10 @@
-// src/app/aliases/aliases.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../menu/menu.component';
 import { open } from '@tauri-apps/api/dialog';
 import { invoke } from '@tauri-apps/api/tauri';
-import { NotyfService } from '../services/notyf.service';
+import { NotyfService } from '../../services/notyf.service';
 
 interface AliasConfig {
     ip: string;
@@ -30,7 +27,6 @@ interface Config {
     imports: [
         FormsModule,
         CommonModule,
-        MenuComponent
     ],
     styleUrls: ['./origem.component.scss']
 })

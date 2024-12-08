@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuComponent } from "../menu/menu.component";
 import { open } from "@tauri-apps/api/dialog";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NotyfService } from '../services/notyf.service';
+import { NotyfService } from '../../services/notyf.service';
 import { invoke } from '@tauri-apps/api/tauri';
 
 interface DirectoryConfig {
@@ -13,7 +12,6 @@ interface DirectoryConfig {
 @Component({
     selector: 'app-destino',
     imports: [
-        MenuComponent,
         FormsModule,
         CommonModule
     ],

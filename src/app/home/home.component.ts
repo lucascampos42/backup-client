@@ -1,4 +1,3 @@
-// src/app/home/home.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotyfService } from '../services/notyf.service';
@@ -13,23 +12,18 @@ import { invoke } from '@tauri-apps/api/tauri';
 export class HomeComponent {
   accessMessage = "";
   private attemptCount = 0;
-
+  
   constructor(private router: Router, private notyfService: NotyfService) {}
   
   accessPanel(event: SubmitEvent, password: string): void {
     event.preventDefault();
     
-    const currentDate = new Date();
-    const day = currentDate.getDate();
-    const month = currentDate.getMonth() + 1; // Months are zero-based
-    const year = currentDate.getFullYear();
-    
-    invoke<boolean>('validate_password', { password, day, month, year })
+    invoke<boolean>('validate_password', { password })
       .then(isValid => {
         if (isValid) {
           this.notyfService.success('Acesso concedido. Redirecionando...');
           setTimeout(() => {
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/painel']);
           }, 500);
         } else {
           this.attemptCount++;
@@ -44,6 +38,7 @@ export class HomeComponent {
         this.notyfService.error('Erro ao validar senha: ' + error);
       });
   }
+  
   async backupNow() {
     try {
       await invoke('backup_now');

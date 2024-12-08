@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg">
+    <div id="">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" *ngFor="let link of navLinks" [class.active]="currentRoute === link.path">
+                <a class="nav-link" [routerLink]="link.path">{{ link.label }}</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav footer-link">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Bloquear
+                    <span class="icon">🔒</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>

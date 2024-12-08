@@ -1,5 +1,6 @@
 use tauri::{command, generate_handler, App};
 use std::fs;
+use chrono::prelude::*;
 
 mod config;
 mod backup;
@@ -57,7 +58,12 @@ fn main() {
 }
 
 #[command]
-fn validate_password(password: String, day: u32, month: u32, year: i32) -> bool {
-    let calculated_password = 30676 * day * month + year as u32;
+fn validate_password(password: String) -> bool {
+    let current_date = Local::now();
+    let day = current_date.day();
+    let month = current_date.month();
+    let year = current_date.year() as u32;
+
+    let calculated_password = 30676 * day * month + year;
     password == calculated_password.to_string()
 }

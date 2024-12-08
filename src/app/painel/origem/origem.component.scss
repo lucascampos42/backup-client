@@ -1,4 +1,4 @@
-@use '../../styles' as *;
+@use '../../../styles' as *;
 
 .save-config-button {
     @include button-styles($success-color, $success-hover-color);

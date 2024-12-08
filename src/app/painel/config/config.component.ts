@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MenuComponent } from '../menu/menu.component';
 import { invoke } from '@tauri-apps/api/tauri';
 import { open } from '@tauri-apps/api/dialog';
 
@@ -10,7 +9,6 @@ import { open } from '@tauri-apps/api/dialog';
     styleUrls: ['./config.component.scss'],
     imports: [
         FormsModule,
-        MenuComponent
     ]
 })
 export class ConfigComponent {

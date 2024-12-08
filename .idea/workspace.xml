@@ -5,8 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/config/config.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/config/config.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/config/config.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/destino/destino.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/destino/destino.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/destino/destino.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/menu/menu.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/origem/origem.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/origem/origem.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/origem/origem.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/relatorios/relatorios.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/relatorios/relatorios.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/relatorios/relatorios.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/relatorios/relatorios.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "function",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/dev/backup-client/src-tauri/bin",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -39,7 +62,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.Angular CLI Server.executor": "Run",
     "npm.tauri dev.executor": "Run",
-    "settings.editor.selected.configurable": "watcher.settings",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JavaScript",
     "ts.external.directory.path": "C:\\dev\\backup-client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -50,13 +73,27 @@
       <recent name="C:\dev\backup-client\src-tauri\target\debug" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\backup-client\src\app\painel" />
+      <recent name="C:\dev\backup-client\src-tauri" />
+      <recent name="C:\dev\backup-client" />
       <recent name="C:\dev\backup-client\config" />
       <recent name="C:\dev\backup-client\src" />
-      <recent name="C:\dev\backup-client\public" />
-      <recent name="C:\dev\backup-client" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.tauri dev">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="tauri dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -88,10 +125,25 @@
       <workItem from="1726872257428" duration="57111000" />
       <workItem from="1733440168529" duration="606000" />
       <workItem from="1733527755396" duration="8839000" />
+      <workItem from="1733590549398" duration="23989000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.nsi" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/relatorios/relatorios.component.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
