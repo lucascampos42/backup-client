@@ -3,29 +3,29 @@
 .navbar {
     background-color: $primary-color;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 160px; /* Set the width of the menu */
-    height: 100vh; /* Set the height to occupy the full screen */
-    position: fixed; /* Fix the menu to the left side */
+    width: 180px;
+    height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: column; /* Align items vertically */
+    flex-direction: column;
     img {
-        margin: 20px auto; /* Center the image horizontally */
+        margin: 20px auto;
     }
 }
 
 .navbar-nav {
-    flex-grow: 1; /* Allow items to grow to occupy available space */
+    flex-grow: 1;
     display: flex;
-    flex-direction: column; /* Align items vertically */
+    flex-direction: column;
     .nav-item {
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         font-size: 18px;
         font-weight: 500;
-        display: block; /* Make links occupy the full width */
-        margin-bottom: 15px; /* Add bottom margin to items */
+        display: block;
+        margin-bottom: 15px;
         .nav-link {
             color: white;
         }
@@ -40,15 +40,15 @@
 }
 
 .footer-link {
-    margin-top: auto; /* Push the footer link to the bottom */
+    margin-top: auto;
 }
 
 .icon {
     font-size: 20px;
-    margin: 0 auto; /* Center the icon horizontally */
+    margin: 0 auto;
 }
 
 .main-content {
-    margin-left: 200px; /* Add margin to compensate for the menu width */
-    padding: 20px; /* Add padding for internal spacing */
+    margin-left: 200px;
+    padding: 20px;
 }
