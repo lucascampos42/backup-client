@@ -1,5 +1,4 @@
-/* src/app/aliases/aliases.component.scss */
-@import '../../styles.scss';
+@use '../../styles' as *;
 
 .save-config-button {
     @include button-styles($success-color, $success-hover-color);

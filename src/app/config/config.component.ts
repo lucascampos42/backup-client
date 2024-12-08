@@ -5,14 +5,13 @@ import { invoke } from '@tauri-apps/api/tauri';
 import { open } from '@tauri-apps/api/dialog';
 
 @Component({
-  selector: 'app-config',
-  templateUrl: './config.component.html',
-  standalone: true,
-  styleUrls: ['./config.component.scss'],
-  imports: [
-    FormsModule,
-    MenuComponent
-  ]
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.scss'],
+    imports: [
+        FormsModule,
+        MenuComponent
+    ]
 })
 export class ConfigComponent {
   gbakPath: string = '';

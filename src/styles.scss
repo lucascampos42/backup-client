@@ -1,12 +1,11 @@
-/* src/styles.scss */
 $primary-color: #ff6200;
 $secondary-color: #007bff;
-$hover-color: darken($primary-color, 10%);
-$secondary-hover-color: darken($secondary-color, 10%);
+$hover-color: #ff6200;
+$secondary-hover-color: #007bff;
 $danger-color: #dc3545;
-$danger-hover-color: darken($danger-color, 10%);
+$danger-hover-color: #dc3545;
 $success-color: #28a745;
-$success-hover-color: darken($success-color, 10%);
+$success-hover-color: #28a745;
 $background-color: #a6a6a6;
 $border-color: #ddd;
 
