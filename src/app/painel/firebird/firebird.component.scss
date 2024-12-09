@@ -4,22 +4,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 10px;
+  padding: 2px;
+  padding-left: 8px;
   border: 1px solid $border-color;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   p {
-    font-size: 14px;
+    font-size: 15px;
     margin: 0 10px 0 0;
+    width: 350px;
+    text-transform: uppercase;
+
   }
 
   label {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    margin-top: 5px;
 
     input[type="checkbox"] {
       margin-right: 5px;
@@ -27,20 +31,16 @@
   }
 
   .delete-button {
-    white-space: nowrap;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 4px;
     display: flex;
     align-items: center;
-    gap: 5px;
     margin-left: auto;
-    width: 120px; // Set a fixed width
-    justify-content: center; // Center the content
-    @include button-styles($danger-color, $danger-hover-color);
+    background: none;
+    border: none;
+    color: $secondary-color;
+    cursor: pointer;
 
-    .icon {
-      font-size: 16px;
+    &:hover {
+      color: red;
     }
   }
 }
@@ -67,15 +67,15 @@
   }
 
   button {
-    @include button-styles($success-color, $success-hover-color);
+    @include button-styles($secondary-color, $success-hover-color);
     white-space: nowrap;
-    padding: 5px 10px;
+    padding: 5px;
     font-size: 14px;
     border-radius: 5px;
     display: inline-flex;
     align-items: center;
     margin: 0 10px;
-    background-color: $success-color;
+    background-color: $secondary-color;
     color: #fff;
     cursor: pointer;
     justify-content: center;
@@ -85,15 +85,16 @@
     }
 
     .icon {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
 }
 
 .input-field {
   width: 100%;
-  padding: 10px;
-  border: 1px solid $border-color;
+  padding: 4px;
+  border: 2px solid $border-color;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 15px;
+  text-transform: uppercase;
 }

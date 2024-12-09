@@ -1,23 +1,19 @@
 <h3>Aliases Firebird para bkp</h3>
 <div class="add-config">
-    <input id="newIp" placeholder="IP" class="input-field" />
-    <input id="newAlias" placeholder="Alias" class="input-field" />
+    <input id="newIp" placeholder="IP" class="input-field" [(ngModel)]="newConnection.ip" />
+    <input id="newAlias" placeholder="Alias" class="input-field" [(ngModel)]="newConnection.aliases" />
     <label>
-        <input type="checkbox" /> Fiscal
+        <input type="checkbox" [(ngModel)]="newConnection.is_fiscal" /> Fiscal
     </label>
-    <button class="add-config">
-        <span class="icon">💾</span> Adicionar
+    <button (click)="addFirebirdConnection()" title="Adicionar">
+        <span class="icon">💾</span>
     </button>
 </div>
-<div class="p-3">
-    <div class="config-item" *ngFor="let config of firebirdConfig">
-        <p>IP: {{ config.ip }}</p>
-        <p>Aliases: {{ config.aliases }}</p>
-        <label>
-            <input type="checkbox" [(ngModel)]="config.is_fiscal" /> Fiscal
-        </label>
-        <button class="delete-button">
-            <span class="icon white-icon">❌</span> <p>Remover</p>
-        </button>
-    </div>
+<div class="config-item" *ngFor="let config of firebirdConfig">
+    <p>IP: {{ config.ip }}</p>
+    <p>Aliases: {{ config.aliases }}</p>
+    <mat-icon *ngIf="config.is_fiscal" class="text-success h5">balance</mat-icon>
+    <button class="delete-button" title="Remover">
+        <mat-icon>delete</mat-icon>
+    </button>
 </div>
