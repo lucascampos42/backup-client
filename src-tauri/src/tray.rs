@@ -1,49 +1,69 @@
 use tauri::{CustomMenuItem, SystemTrayMenu, SystemTray, SystemTrayEvent, Manager};
+use log::{info, error};
 
-// Function to build the system tray menu (icon in the notification area)
+// Criação do menu da bandeja
 pub fn build_system_tray() -> SystemTray {
-    // Menu items for the tray
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let hide = CustomMenuItem::new("hide".to_string(), "Hide");
     let show = CustomMenuItem::new("show".to_string(), "Show");
 
-    // Create the menu and add the items
     let tray_menu = SystemTrayMenu::new()
         .add_item(hide)
         .add_item(show)
         .add_item(quit);
 
-    // Return the system tray with the configured menu
     SystemTray::new().with_menu(tray_menu)
 }
 
-// Function to handle system tray events (clicks and interactions)
+// Tratamento de eventos da bandeja
 pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) {
-    let window = app.get_window("main").unwrap();
-
-    match event {
-        SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
-            "quit" => app.exit(0),      // Exit the application
-            "hide" => window.hide().unwrap(),  // Hide the window
-            "show" => {
-                window.show().unwrap();
-                window.set_focus().unwrap();
-            },
+    if let Some(window) = app.get_window("main") {
+        match event {
+            SystemTrayEvent::MenuItemClick { id, .. } => {
+                match id.as_str() {
+                    "quit" => {
+                        info!("Quit menu item clicked");
+                        app.exit(0);
+                    }
+                    "hide" => {
+                        if let Err(e) = window.hide() {
+                            error!("Failed to hide window: {:?}", e);
+                        }
+                    }
+                    "show" => {
+                        if let Err(e) = window.show() {
+                            error!("Failed to show window: {:?}", e);
+                        }
+                        if let Err(e) = window.set_focus() {
+                            error!("Failed to focus window: {:?}", e);
+                        }
+                    }
+                    _ => {}
+                }
+            }
+            SystemTrayEvent::LeftClick { position, .. } => {
+                info!("Tray icon clicked at: {:?}", position);
+                if let Err(e) = window.show() {
+                    error!("Failed to show window: {:?}", e);
+                }
+                if let Err(e) = window.set_focus() {
+                    error!("Failed to focus window: {:?}", e);
+                }
+            }
             _ => {}
-        },
-        SystemTrayEvent::LeftClick { .. } => {
-            window.show().unwrap();
-            window.set_focus().unwrap();
-        },
-        _ => {}
+        }
+    } else {
+        error!("Main window not found for tray event");
     }
 }
 
-// Function to handle window events
+// Tratamento de eventos da janela
 pub fn handle_window_event(event: tauri::GlobalWindowEvent) {
     if let tauri::WindowEvent::CloseRequested { api, .. } = event.event() {
         let window = event.window();
-        window.hide().unwrap();  // Hide the window when trying to close it
-        api.prevent_close();     // Prevent the window from closing
+        if let Err(e) = window.hide() {
+            error!("Failed to hide window on close: {:?}", e);
+        }
+        api.prevent_close();
     }
 }

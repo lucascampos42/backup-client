@@ -1,13 +1,9 @@
 [package]
 name = "backup-client"
-version = "0.2.1"
+version = "0.2.2"
 description = "Backup Client"
 authors = ["CodesDevs"]
 edition = "2021"
-
-[build-dependencies]
-tauri-build = { version = "1", features = [] }
-cc = "1.0"
 
 [dependencies]
 tauri = { version = "1.0", features = ["api-all", "system-tray"] }
@@ -17,10 +13,21 @@ dirs = "5.0.1"
 notify = "5.0"
 winreg = "0.10"
 chrono = "0.4"
+log = "0.4"
+env_logger = "0.10"
+
+[build-dependencies]
+tauri-build = { version = "1", features = [] }
+cc = "1.0"
 
 [features]
 custom-protocol = ["tauri/custom-protocol"]
 
 [package.metadata.tauri]
-windows-attributes = { window = true }
 build = "build.rs"
+
+[package.metadata.winres]
+windows = true
+
+[package.metadata.tauri.windows]
+windows-subsystem = "windows"

@@ -1,35 +1,41 @@
-use tauri::{command, generate_handler, App};
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+use tauri::{generate_handler, App};
 use std::fs;
 use chrono::prelude::*;
+use log::{info, error};
+use env_logger;
 
-mod config;
-mod backup;
 mod tray;
 mod json;
 mod firebird;
 
-use config::{load_config, save_config};
-use backup::{backup_now, save_backup_config, save_backup_directory};
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::create_default_config;
 use firebird::{load_firebird_config};
 
-
 fn initialize_app(_app: &App) {
     let config_path = std::env::current_dir().unwrap().join("config.json");
-    println!("Config path: {:?}", config_path);
+    info!("Config path: {:?}", config_path);
 
     if !config_path.exists() {
         let default_config = create_default_config();
-        fs::create_dir_all(config_path.parent().unwrap()).unwrap();
-        fs::write(config_path, default_config).unwrap();
-        println!("Config file created");
+        if let Err(e) = fs::create_dir_all(config_path.parent().unwrap()) {
+            error!("Failed to create config directory: {:?}", e);
+        } else if let Err(e) = fs::write(&config_path, default_config) {
+            error!("Failed to create config file: {:?}", e);
+        } else {
+            info!("Config file created");
+        }
     } else {
-        println!("Config file already exists");
+        info!("Config file already exists");
     }
 }
 
 fn main() {
+    // Inicialize o logger
+    env_logger::init();
+
     let system_tray = build_system_tray();
 
     tauri::Builder::default()
@@ -41,19 +47,14 @@ fn main() {
             Ok(())
         })
         .invoke_handler(generate_handler![
-          load_firebird_config,
-          backup_now,
-          save_backup_config,
-          load_config,
-          save_config,
-          save_backup_directory,
-          validate_password
+            load_firebird_config,
+            validate_password
         ])
         .run(tauri::generate_context!())
         .expect("Erro ao executar a aplicação Tauri");
 }
 
-#[command]
+#[tauri::command]
 fn validate_password(password: String) -> bool {
     let current_date = Local::now();
     let day = current_date.day();

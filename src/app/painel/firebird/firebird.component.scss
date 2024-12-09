@@ -1,31 +1,5 @@
 @use '../../../styles' as *;
 
-.save-config-button {
-  @include button-styles($success-color, $success-hover-color);
-  white-space: nowrap;
-  background-color: $success-color;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  &:hover {
-    background-color: $success-hover-color;
-  }
-
-  .icon {
-    font-size: 18px;
-  }
-}
-
 .config-item {
   display: flex;
   flex-direction: row;
@@ -52,36 +26,27 @@
     }
   }
 
-  .button-group {
-    margin-left: auto;
+  .delete-button {
+    white-space: nowrap;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
     display: flex;
+    align-items: center;
     gap: 5px;
+    margin-left: auto;
+    width: 120px; // Set a fixed width
+    justify-content: center; // Center the content
+    @include button-styles($danger-color, $danger-hover-color);
 
-    .edit-button,
-    .delete-button {
-      @include button-styles($primary-color, $hover-color);
-      white-space: nowrap;
-      padding: 5px 10px;
-      font-size: 14px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-
-      .icon {
-        font-size: 16px;
-      }
-    }
-
-    .delete-button {
-      @include button-styles($danger-color, $danger-hover-color);
+    .icon {
+      font-size: 16px;
     }
   }
 }
 
 .add-config {
   display: flex;
-  flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
 
@@ -92,13 +57,13 @@
   }
 
   label {
-    margin-bottom: 0;
-  }
+    display: inline-flex;
+    align-items: center;
+    margin: 0 10px;
 
-  input {
-    padding: 5px;
-    border: 1px solid $border-color;
-    border-radius: 4px;
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
   }
 
   button {
@@ -106,20 +71,21 @@
     white-space: nowrap;
     padding: 5px 10px;
     font-size: 14px;
-    border-radius: 4px;
-    display: flex;
+    border-radius: 5px;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    margin: 0 10px;
     background-color: $success-color;
     color: #fff;
-    border: none;
     cursor: pointer;
+    justify-content: center;
+    font-size: 16px;
     &:hover {
       background-color: $success-hover-color;
     }
 
     .icon {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 }
