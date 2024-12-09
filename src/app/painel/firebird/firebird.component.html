@@ -1,0 +1,35 @@
+<h3>Aliases BKP Firebird</h3>
+<div class="add-config">
+    <div>
+        <input id="newIp" placeholder="IP" class="input-field" />
+    </div>
+    <div>
+        <input id="newAlias" placeholder="Alias" class="input-field" />
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" /> Fiscal
+        </label>
+    </div>
+    <button>
+        <span class="icon">💾</span> Adicionar
+    </button>
+</div>
+<div class="">
+    <div class="config-item" *ngFor="let config of firebirdConfig">
+        <p>IP: {{ config.ip }}</p>
+        <p>Aliases: {{ config.aliases }}</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="config.is_fiscal" /> Fiscal
+        </label>
+        <button class="edit-button">
+            <span class="icon">✏️</span> Editar
+        </button>
+        <button class="delete-button">
+            <span class="icon">❌</span> Remover
+        </button>
+    </div>
+</div>
+<button class="save-config-button">
+    <span class="icon">💾</span> Salvar
+</button>

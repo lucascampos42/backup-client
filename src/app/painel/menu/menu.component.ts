@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   currentRoute: string = '';
   navLinks = [
     { path: '/painel/dashboard', label: 'Dashboard' },
-    { path: '/painel/aliases', label: 'Aliases Firebird' },
+    { path: '/painel/firebird', label: 'Aliases Firebird' },
     { path: '/painel/pasta', label: 'BKP de Diretorios' },
     { path: '/painel/destino', label: 'Destino' },
     { path: '/painel/config', label: 'Configuração' }

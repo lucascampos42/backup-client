@@ -6,11 +6,14 @@ mod config;
 mod backup;
 mod tray;
 mod json;
+mod firebird;
 
 use config::{load_config, save_config};
 use backup::{backup_now, save_backup_config, save_backup_directory};
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::create_default_config;
+use firebird::{load_firebird_config};
+
 
 fn initialize_app(_app: &App) {
     let config_path = std::env::current_dir().unwrap().join("config.json");
@@ -38,12 +41,13 @@ fn main() {
             Ok(())
         })
         .invoke_handler(generate_handler![
-            backup_now,
-            save_backup_config,
-            load_config,
-            save_config,
-            save_backup_directory,
-            validate_password
+          load_firebird_config,
+          backup_now,
+          save_backup_config,
+          load_config,
+          save_config,
+          save_backup_directory,
+          validate_password
         ])
         .run(tauri::generate_context!())
         .expect("Erro ao executar a aplicação Tauri");
