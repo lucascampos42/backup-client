@@ -28,100 +28,106 @@
 
 .config-item {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: 4px;
+  padding: 10px;
   border: 1px solid $border-color;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  gap: 10px; /* Ajuste o valor conforme necessário */
-  p {
-    font-size: 16px;
-    margin: 0;
-    flex: 1;
-  }
-}
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-.config-item button {
-  @include button-styles($danger-color, $danger-hover-color);
-  white-space: nowrap;
-  padding: 2px 2px; /* Ajuste o valor conforme necessário */
-  font-size: 12px; /* Ajuste o valor conforme necessário */
-  border-radius: 4px;
+  p {
+    font-size: 14px;
+    margin: 0 10px 0 0;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  }
+
+  .button-group {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+
+    .edit-button,
+    .delete-button {
+      @include button-styles($primary-color, $hover-color);
+      white-space: nowrap;
+      padding: 5px 10px;
+      font-size: 14px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .icon {
+        font-size: 16px;
+      }
+    }
+
+    .delete-button {
+      @include button-styles($danger-color, $danger-hover-color);
+    }
+  }
 }
 
 .add-config {
-  > div {
-    padding-bottom: 8px;
-  }
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.add-config label {
-  margin-bottom: 0;
-}
-
-.add-config input {
-  padding: 5px;
-  border: 1px solid $border-color;
-  border-radius: 4px;
-}
-
-.add-config button {
-  @include button-styles($secondary-color, $secondary-hover-color);
-  white-space: nowrap;
-}
-
-.add-folder {
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.add-folder label {
-  margin-bottom: 0;
-}
-
-.add-folder input {
-  padding: 5px;
-  border: 1px solid $border-color;
-  border-radius: 4px;
-}
-
-.add-folder button {
-  @include button-styles($secondary-color, $secondary-hover-color);
-  white-space: nowrap;
-}
-
-.backup-container {
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.backup-header {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.backup-content {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
+  gap: 10px;
+  margin-bottom: 20px;
 
-.backup-button {
-  @include button-styles($primary-color, $hover-color);
-  white-space: nowrap;
+  > div {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  label {
+    margin-bottom: 0;
+  }
+
+  input {
+    padding: 5px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+  }
+
+  button {
+    @include button-styles($success-color, $success-hover-color);
+    white-space: nowrap;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: $success-color;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: $success-hover-color;
+    }
+
+    .icon {
+      font-size: 16px;
+    }
+  }
 }
 
 .input-field {
-  width: 100%; /* Ajuste o valor conforme necessário */
-  padding: 10px; /* Ajuste o valor conforme necessário */
+  width: 100%;
+  padding: 10px;
   border: 1px solid $border-color;
   border-radius: 4px;
-  font-size: 16px; /* Ajuste o valor conforme necessário */
+  font-size: 16px;
 }
