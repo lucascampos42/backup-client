@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 .idea/material_theme_project_new.xml
 .idea/workspace.xml
+/src-tauri/target/
