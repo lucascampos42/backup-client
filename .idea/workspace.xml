@@ -18,6 +18,10 @@
       <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/xml/xml.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/xml/xml.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/xml/xml.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/xml/xml.component.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -5,7 +5,6 @@ import {PastaComponent} from "./pasta/pasta.component";
 import {DestinoComponent} from "./destino/destino.component";
 import {ConfigComponent} from "./config/config.component";
 import {FirebirdComponent} from "./firebird/firebird.component";
-import {XmlComponent} from "./xml/xml.component";
 
 export const painelRoutes: Routes = [
   {
@@ -18,7 +17,6 @@ export const painelRoutes: Routes = [
       { path: 'pasta', component: PastaComponent },
       { path: 'destino', component: DestinoComponent },
       { path: 'config', component: ConfigComponent },
-      { path: 'xml', component: XmlComponent }
     ]
   }
 ];
