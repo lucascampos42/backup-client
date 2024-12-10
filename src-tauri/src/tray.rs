@@ -3,9 +3,9 @@ use log::{info, error};
 
 // Criação do menu da bandeja
 pub fn build_system_tray() -> SystemTray {
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
-    let hide = CustomMenuItem::new("hide".to_string(), "Hide");
-    let show = CustomMenuItem::new("show".to_string(), "Show");
+    let quit = CustomMenuItem::new("quit".to_string(), "Sair");
+    let hide = CustomMenuItem::new("hide".to_string(), "Ocultar");
+    let show = CustomMenuItem::new("show".to_string(), "Mostrar");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(hide)
@@ -21,21 +21,24 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
         match event {
             SystemTrayEvent::MenuItemClick { id, .. } => {
                 match id.as_str() {
-                    "quit" => {
-                        info!("Quit menu item clicked");
+                    "sair" => {
+                        info!("Sair menu item clicked");
                         app.exit(0);
                     }
-                    "hide" => {
+                    "ocultar" => {
                         if let Err(e) = window.hide() {
                             error!("Failed to hide window: {:?}", e);
                         }
                     }
-                    "show" => {
+                    "mostrar" => {
                         if let Err(e) = window.show() {
                             error!("Failed to show window: {:?}", e);
                         }
                         if let Err(e) = window.set_focus() {
                             error!("Failed to focus window: {:?}", e);
+                        }
+                        if let Err(e) = window.eval("window.location.href = '/home';") {
+                            error!("Failed to reload home page: {:?}", e);
                         }
                     }
                     _ => {}
@@ -48,6 +51,9 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
                 }
                 if let Err(e) = window.set_focus() {
                     error!("Failed to focus window: {:?}", e);
+                }
+                if let Err(e) = window.eval("window.location.href = '/home';") {
+                    error!("Failed to reload home page: {:?}", e);
                 }
             }
             _ => {}

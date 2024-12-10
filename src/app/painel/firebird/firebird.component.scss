@@ -4,8 +4,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 2px;
-  padding-left: 8px;
+  padding: 5px 0 5px 5px;
   border: 1px solid $border-color;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -13,9 +12,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   p {
-    font-size: 15px;
-    margin: 0 10px 0 0;
-    width: 350px;
+    font-size: 17px;
+    margin: 0;
+    width: 370px;
     text-transform: uppercase;
 
   }

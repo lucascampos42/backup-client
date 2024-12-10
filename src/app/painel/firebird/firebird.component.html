@@ -9,11 +9,13 @@
         <span class="icon">💾</span>
     </button>
 </div>
-<div class="config-item" *ngFor="let config of firebirdConfig">
-    <p>IP: {{ config.ip }}</p>
-    <p>Aliases: {{ config.aliases }}</p>
-    <mat-icon *ngIf="config.is_fiscal" class="text-success h5">balance</mat-icon>
-    <button class="delete-button" title="Remover">
-        <mat-icon>delete</mat-icon>
-    </button>
+<div class="config-list">
+    <div class="config-item" *ngFor="let config of firebirdConfig">
+        <p>IP: {{ config.ip }}</p>
+        <p>Aliases: {{ config.aliases }}</p>
+        <mat-icon *ngIf="config.is_fiscal" class="text-success h5">balance</mat-icon>
+        <button class="delete-button" (click)="deleteFirebirdConnection(config.ip, config.aliases)" title="Remover">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
 </div>

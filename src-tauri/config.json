@@ -1,33 +1,28 @@
 {
   "firebird": [
     {
-      "ip": "localhost",
-      "aliases": "eagleerp",
-      "is_fiscal": true
-    },
-    {
-      "ip": "",
-      "aliases": "",
-      "is_fiscal": false
-    },
-    {
-      "ip": "1",
-      "aliases": "1",
-      "is_fiscal": false
-    },
-    {
       "ip": "2",
       "aliases": "2",
       "is_fiscal": false
     },
     {
       "ip": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
-      "aliases": "sijd0oajsdjajsd-akdok-akdkkk",
+      "aliases": "sdasdasdadadsadsasdasdsdad",
       "is_fiscal": false
     },
     {
-      "ip": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
-      "aliases": "sdasdasdadadsadsasdasdsdasdasd",
+      "ip": "localhost",
+      "aliases": "eagleerp",
+      "is_fiscal": false
+    },
+    {
+      "ip": "3",
+      "aliases": "2",
+      "is_fiscal": false
+    },
+    {
+      "ip": "3",
+      "aliases": "3",
       "is_fiscal": false
     }
   ],

@@ -52,3 +52,21 @@
     margin-left: 190px;
     padding: 10px;
 }
+
+.lock-icon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px; /* Set width */
+    height: 40px; /* Set height to be equal to width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff4081; /* Attractive color */
+    background-color: black; /* Background color */
+    transition: color 0.3s, transform 0.3s; /* Animation for color and transform */
+    &:hover {
+        color: #ff80ab; /* Lighter shade on hover */
+        transform: scale(1.2); /* Slightly enlarge on hover */
+    }
+}

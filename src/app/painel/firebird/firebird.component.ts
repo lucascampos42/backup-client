@@ -33,8 +33,7 @@ export class FirebirdComponent implements OnInit {
   
   async loadConfigurations() {
     try {
-      const configPath = './config.json'; // Ensure the configPath is provided
-      const config = await invoke<{ firebird: FirebirdConfig[] }>('load_firebird_config', { configPath });
+      const config = await invoke<{ firebird: FirebirdConfig[] }>('load_firebird_config');
       
       if (!config.firebird) {
         throw new Error('Campo `firebird` ausente na configuração');
@@ -50,14 +49,29 @@ export class FirebirdComponent implements OnInit {
   
   async addFirebirdConnection() {
     try {
-      const configPath = './config.json'; // Ensure the configPath is provided
-      await invoke('add_firebird_connection', { configPath, newConnection: this.newConnection });
+      await invoke('add_firebird_connection', { newConnection: this.newConnection });
       this.firebirdConfig.push({ ...this.newConnection });
       this.newConnection = { ip: '', aliases: '', is_fiscal: false };
       this.notyf.success('Nova conexão adicionada com sucesso');
     } catch (error) {
-      console.error('Erro ao adicionar nova conexão:', error);
-      this.notyf.error('Falha ao adicionar nova conexão');
+      if (error === 'Conexão com o mesmo IP e aliases já existe.') {
+        this.notyf.error('Conexão com o mesmo IP e aliases já existe.');
+      } else {
+        console.error('Erro ao adicionar nova conexão:', error);
+        this.notyf.error('Falha ao adicionar nova conexão');
+      }
     }
+  }
+  
+  deleteFirebirdConnection(ip: string, aliases: string) {
+    console.log(`Deleting connection with IP: ${ip}, Aliases: ${aliases}`);
+    
+    invoke('delete_firebird_connection', { ip, aliases })
+      .then(() => {
+        this.firebirdConfig = this.firebirdConfig.filter(config => config.ip !== ip || config.aliases !== aliases);
+      })
+      .catch(err => {
+        console.error('Erro ao deletar a conexão:', err);
+      });
   }
 }

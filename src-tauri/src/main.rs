@@ -12,7 +12,7 @@ mod firebird;
 
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::create_default_config;
-use firebird::{load_firebird_config, add_firebird_connection};
+use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
 
 fn initialize_app(_app: &App) {
     let config_path = std::env::current_dir().unwrap().join("config.json");
@@ -49,6 +49,7 @@ fn main() {
         .invoke_handler(generate_handler![
             load_firebird_config,
             add_firebird_connection,
+            delete_firebird_connection,
             validate_password
         ])
         .run(tauri::generate_context!())
