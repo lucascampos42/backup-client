@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/firebird.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/tray.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/xml/xml.component.css" beforeDir="false" />
