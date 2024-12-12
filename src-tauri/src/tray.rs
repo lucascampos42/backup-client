@@ -6,10 +6,12 @@ pub fn build_system_tray() -> SystemTray {
     let quit = CustomMenuItem::new("quit".to_string(), "Sair");
     let hide = CustomMenuItem::new("hide".to_string(), "Ocultar");
     let show = CustomMenuItem::new("show".to_string(), "Mostrar");
+    let backup = CustomMenuItem::new("backup".to_string(), "Fazer Backup");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(hide)
         .add_item(show)
+        .add_item(backup)
         .add_item(quit);
 
     SystemTray::new().with_menu(tray_menu)
@@ -21,16 +23,16 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
         match event {
             SystemTrayEvent::MenuItemClick { id, .. } => {
                 match id.as_str() {
-                    "sair" => {
+                    "quit" => {
                         info!("Sair menu item clicked");
                         app.exit(0);
                     }
-                    "ocultar" => {
+                    "hide" => {
                         if let Err(e) = window.hide() {
                             error!("Failed to hide window: {:?}", e);
                         }
                     }
-                    "mostrar" => {
+                    "show" => {
                         if let Err(e) = window.show() {
                             error!("Failed to show window: {:?}", e);
                         }
@@ -39,6 +41,12 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
                         }
                         if let Err(e) = window.eval("window.location.href = '/home';") {
                             error!("Failed to reload home page: {:?}", e);
+                        }
+                    }
+                    "backup" => {
+                        info!("Backup menu item clicked");
+                        if let Err(e) = window.emit("backup-now", ()) {
+                            error!("Failed to emit backup-now event: {:?}", e);
                         }
                     }
                     _ => {}

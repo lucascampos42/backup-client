@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotyfService } from '../services/notyf.service';
 import { invoke } from '@tauri-apps/api/tauri';
+import { listen } from '@tauri-apps/api/event';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,21 @@ import { invoke } from '@tauri-apps/api/tauri';
   styleUrls: ['./home.component.scss'],
   standalone: true
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   accessMessage = "";
   private attemptCount = 0;
   
   constructor(private router: Router, private notyfService: NotyfService) {}
+  
+  ngOnInit() {
+    listen('backup-progress', (event) => {
+      this.notyfService.success(event.payload as string);
+    });
+    
+    listen('backup-now', () => {
+      this.backupNow();
+    });
+  }
   
   accessPanel(event: SubmitEvent, password: string): void {
     event.preventDefault();
@@ -41,7 +52,7 @@ export class HomeComponent {
   
   async backupNow() {
     try {
-      await invoke('backup_now');
+      await invoke('backup_firebird_databases');
       this.notyfService.success('Backup realizado com sucesso!');
     } catch (error) {
       this.notyfService.error('Erro ao realizar backup: ' + error);

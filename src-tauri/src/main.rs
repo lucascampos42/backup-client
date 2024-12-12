@@ -9,10 +9,12 @@ use env_logger;
 mod tray;
 mod json;
 mod firebird;
+mod backup;
 
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::create_default_config;
 use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
+use backup::backup_firebird_databases;
 
 fn initialize_app(_app: &App) {
     let config_path = std::env::current_dir().unwrap().join("config.json");
@@ -50,7 +52,8 @@ fn main() {
             load_firebird_config,
             add_firebird_connection,
             delete_firebird_connection,
-            validate_password
+            validate_password,
+            backup_firebird_databases
         ])
         .run(tauri::generate_context!())
         .expect("Erro ao executar a aplicação Tauri");

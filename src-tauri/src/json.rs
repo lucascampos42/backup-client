@@ -10,36 +10,36 @@ pub fn get_config_path() -> Result<PathBuf, String> {
 
 pub fn create_default_config() -> String {
   r#"{
-"firebird": [
-  {
-    "ip": "localhost",
-    "aliases": "eagleerp",
-    "is_fiscal": "true"
-  }
-],
-"diretorio": [
-	{
-		"origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-		"xml": "true"
-	}
-],
-"destino": {
-	"bkp_local": "false",
-	"destino": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\"
-},
-"remote_config": {
-	"bkp_nuvem": "false",
-	"intervalo": "2",
-	"cnpj": "123456",
-	"hash": "123456"
-	"api": "http://localhost:3000"
-},
-"backup_config": {
-  "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
-  "username": "sysdba",
-  "password": "masterkey"
-}
-}
+       "firebird": [
+         {
+           "ip": "localhost",
+           "aliases": "eagleerp",
+           "is_fiscal": true
+         }
+       ],
+       "diretorio": [
+         {
+           "origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
+           "xml": true
+         }
+       ],
+       "destino": {
+         "bkp_local": false,
+         "destino": "C:\\bkp\\"
+       },
+       "remote_config": {
+         "bkp_nuvem": false,
+         "intervalo": "2",
+         "cnpj": "123456",
+         "hash": "123456",
+         "api": "http://localhost:3000"
+       },
+       "backup_config": {
+         "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+         "username": "sysdba",
+         "password": "masterkey"
+       }
+     }
     "#
     .to_string()
 }
