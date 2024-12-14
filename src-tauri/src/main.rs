@@ -12,26 +12,38 @@ mod firebird;
 mod backup;
 
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
-use json::create_default_config;
+use json::{create_default_config, load_config, update_config_file};
 use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
 use backup::backup_firebird_databases;
 
 fn initialize_app(_app: &App) {
-    let config_path = std::env::current_dir().unwrap().join("config.json");
-    info!("Config path: {:?}", config_path);
+  let config_path = std::env::current_dir().unwrap().join("config.json");
+  info!("Config path: {:?}", config_path);
 
-    if !config_path.exists() {
-        let default_config = create_default_config();
-        if let Err(e) = fs::create_dir_all(config_path.parent().unwrap()) {
-            error!("Failed to create config directory: {:?}", e);
-        } else if let Err(e) = fs::write(&config_path, default_config) {
-            error!("Failed to create config file: {:?}", e);
-        } else {
-            info!("Config file created");
-        }
+  if !config_path.exists() {
+    let default_config = create_default_config();
+    if let Err(e) = fs::create_dir_all(config_path.parent().unwrap()) {
+      error!("Failed to create config directory: {:?}", e);
+    } else if let Err(e) = fs::write(&config_path, default_config) {
+      error!("Failed to create config file: {:?}", e);
     } else {
-        info!("Config file already exists");
+      info!("Config file created");
     }
+  } else {
+    match load_config(&config_path) {
+      Ok(config) => {
+        info!("Loaded config: {:?}", config);
+      }
+      Err(e) => {
+        error!("Failed to load config: {}. Updating to default config.", e);
+        if let Err(e) = update_config_file(&config_path) {
+          error!("Failed to update config: {:?}", e);
+        } else {
+          info!("Config file updated");
+        }
+      }
+    }
+  }
 }
 
 fn main() {

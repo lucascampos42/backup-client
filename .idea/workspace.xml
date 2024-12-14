@@ -7,6 +7,9 @@
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +108,7 @@
       <workItem from="1733590549398" duration="41817000" />
       <workItem from="1733753637361" duration="25534000" />
       <workItem from="1733971196598" duration="2029000" />
+      <workItem from="1734129171154" duration="3007000" />
     </task>
     <servers />
   </component>
