@@ -16,14 +16,14 @@ interface Config {
 
 @Component({
     selector: 'app-aliases',
-    templateUrl: './pasta.component.html',
+    templateUrl: './bkpdiretorios.component.html',
     imports: [
         FormsModule,
         CommonModule,
     ],
-    styleUrls: ['./pasta.component.scss']
+    styleUrls: ['./bkpdiretorios.component.scss']
 })
-export class PastaComponent implements OnInit {
+export class BkpdiretoriosComponent implements OnInit {
     directoriesConfig: DirectoryConfig[] = [];
     selectedDirectory: string | null = null;
     

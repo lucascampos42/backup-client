@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="">
+    <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/pasta/pasta.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/pasta/pasta.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +38,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Reverting in main",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/dev/backup-client/src-tauri/bin",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,6 +114,15 @@
       <workItem from="1733971196598" duration="2029000" />
       <workItem from="1734129171154" duration="3007000" />
     </task>
+    <task id="LOCAL-00001" summary="fix">
+      <option name="closed" value="true" />
+      <created>1734138005098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734138005098</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +130,10 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.nsi" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

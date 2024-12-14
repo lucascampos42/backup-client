@@ -17,3 +17,18 @@
 <button (click)="saveConfigurations()" class="save-config-button">
     <span class="icon">💾</span> Salvar
 </button>
+
+<h3 class="backup-title">Backup Local</h3>
+<div class="backup-settings">
+    <div class="switch-container">
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+        <label class="description">BKP Local</label>
+    </div>
+    <button class="select-directory-button" (click)="selectDirectory()">
+        <span class="icon">📁</span> Selecionar Pasta
+    </button>
+    <p class="directory-path">{{ selectedDirectory || '/caminho/para/diretorio' }}</p>
+</div>
