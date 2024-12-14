@@ -1,5 +1,3 @@
-// src-tauri/src/firebird.rs
-
 use std::fs;
 use std::path::Path;
 use tauri::command;
@@ -7,14 +5,14 @@ use crate::json::{get_config_path, FirebirdConnection, Config};
 
 #[command]
 pub fn load_firebird_config() -> Result<Config, String> {
-    let config_path = get_config_path()?;
+    let config_path = get_config_path();
     println!("load_firebird_config called with config_path: {:?}", config_path);
 
     if !config_path.exists() {
         return Err(format!("O arquivo de configuração não foi encontrado: {:?}", config_path));
     }
 
-    let config_data = fs::read_to_string(config_path).map_err(|e| format!("Erro ao ler o arquivo: {}", e))?;
+    let config_data = fs::read_to_string(&config_path).map_err(|e| format!("Erro ao ler o arquivo: {}", e))?;
     let mut config_json: serde_json::Value = serde_json::from_str(&config_data)
         .map_err(|e| format!("Erro ao desserializar o JSON: {}", e))?;
 
@@ -36,7 +34,7 @@ pub fn load_firebird_config() -> Result<Config, String> {
 
 #[command]
 pub fn add_firebird_connection(new_connection: FirebirdConnection) -> Result<(), String> {
-    let config_path = get_config_path()?;
+    let config_path = get_config_path();
     println!("add_firebird_connection chamado com config_path: {:?}", config_path);
 
     let path = Path::new(&config_path);
@@ -69,7 +67,7 @@ pub fn add_firebird_connection(new_connection: FirebirdConnection) -> Result<(),
 
 #[command]
 pub fn delete_firebird_connection(aliases: String) -> Result<(), String> {
-    let config_path = get_config_path()?;
+    let config_path = get_config_path();
     println!("Caminho calculado para o arquivo de configuração: {:?}", config_path);
 
     if !config_path.exists() {

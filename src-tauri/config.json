@@ -11,15 +11,18 @@
       "is_fiscal": false
     }
   ],
-  "diretorio": [
+  "bkp_diretorio": [
     {
       "origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-      "xml": true
+      "xml": false,
+      "bkp_local": false,
+      "destino": "C:\\bkp\\"
     }
   ],
-  "destino": {
-    "bkp_local": false,
-    "destino": "C:\\bkp\\"
+  "backup_config": {
+    "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+    "username": "sysdba",
+    "password": "masterkey"
   },
   "remote_config": {
     "bkp_nuvem": false,
@@ -27,11 +30,6 @@
     "cnpj": "123456",
     "hash": "123456",
     "api": "http://localhost:3000"
-  },
-  "backup_config": {
-    "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
-    "username": "sysdba",
-    "password": "masterkey"
   },
   "backup_info": {
     "last_backup": "2021-01-01 00:00:00",

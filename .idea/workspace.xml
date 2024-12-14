@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/destino/destino.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/pasta/pasta.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/pasta/pasta.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/firebird.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
