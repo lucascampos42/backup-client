@@ -1,5 +1,62 @@
 @use '../../../styles' as *;
 
+.switch-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid #ccc; /* Contorno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    width: 200px; /* Tamanho fixo */
+    height: 60px; /* Tamanho fixo */
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-right: 10px; /* Espaço entre a chave e a descrição */
+
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: red;
+            transition: .4s;
+            border-radius: 34px;
+
+            &:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+        }
+
+        input:checked + .slider {
+            background-color: green;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    }
+}
+
 .save-config-button {
     @include button-styles($success-color, $success-hover-color);
     white-space: nowrap;
@@ -33,7 +90,7 @@
     border: 1px solid $border-color;
     border-radius: 6px;
     margin-bottom: 8px;
-    gap: 10px; /* Ajuste o valor conforme necessário */
+    gap: 10px;
     p {
         font-size: 16px;
         margin: 0;
@@ -44,33 +101,9 @@
 .config-item button {
     @include button-styles($danger-color, $danger-hover-color);
     white-space: nowrap;
-    padding: 2px 2px; /* Ajuste o valor conforme necessário */
-    font-size: 12px; /* Ajuste o valor conforme necessário */
+    padding: 2px 2px;
+    font-size: 12px;
     border-radius: 4px;
-}
-
-.add-config {
-    > div {
-        padding-bottom: 8px;
-    }
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.add-config label {
-    margin-bottom: 0;
-}
-
-.add-config input {
-    padding: 5px;
-    border: 1px solid $border-color;
-    border-radius: 4px;
-}
-
-.add-config button {
-    @include button-styles($secondary-color, $secondary-hover-color);
-    white-space: nowrap;
 }
 
 .add-folder {
@@ -79,49 +112,18 @@
     margin-bottom: 20px;
 }
 
-.add-folder label {
-    margin-bottom: 0;
-}
-
-.add-folder input {
-    padding: 5px;
-    border: 1px solid $border-color;
-    border-radius: 4px;
-}
-
 .add-folder button {
     @include button-styles($secondary-color, $secondary-hover-color);
     white-space: nowrap;
 }
 
-.backup-container {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.backup-header {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.backup-content {
+.switch-container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
 }
 
-.backup-button {
-    @include button-styles($primary-color, $hover-color);
-    white-space: nowrap;
-}
-
-.input-field {
-    width: 100%; /* Ajuste o valor conforme necessário */
-    padding: 10px; /* Ajuste o valor conforme necessário */
-    border: 1px solid $border-color;
-    border-radius: 4px;
-    font-size: 16px; /* Ajuste o valor conforme necessário */
+.directory-path {
+    font-size: 16px;
+    margin-top: 10px;
 }

@@ -1,25 +1,22 @@
-<div>
-    <div class="add-folder">
-        <h3>Adiciona pasta ao backup</h3>
-        <button (click)="selectDirectory()">
-            <span class="icon">📁</span> Selecionar Pasta
+<div class="add-folder">
+    <h3>Origem do Backup</h3>
+    <p>Adicione as pastas que deseja fazer backup</p>
+    <button (click)="selectDirectory()">
+        <span class="icon">📁</span> Selecionar Pasta
+    </button>
+</div>
+
+<div class="config-row">
+    <div class="config-item" *ngFor="let config of directoriesConfig; let i = index">
+        <p>SRC: {{ config.directory }}</p>
+        <button (click)="removeDirectory(i)" class="delete-button">
+            <span class="icon">❌</span>
         </button>
     </div>
-    <div class="config-row">
-        <div class="config-item" *ngFor="let config of directoriesConfig; let i = index">
-            <p>SRC: {{ config.directory }}</p>
-            <button (click)="removeDirectory(i)" class="delete-button">
-                <span class="icon">❌</span>
-            </button>
-        </div>
-    </div>
 </div>
-<button (click)="saveConfigurations()" class="save-config-button">
-    <span class="icon">💾</span> Salvar
-</button>
 
-<h3 class="backup-title">Backup Local</h3>
-<div class="backup-settings">
+<div class="add-folder">
+    <h3>Backup Destino</h3>
     <div class="switch-container">
         <label class="switch">
             <input type="checkbox">
@@ -27,8 +24,12 @@
         </label>
         <label class="description">BKP Local</label>
     </div>
-    <button class="select-directory-button" (click)="selectDirectory()">
+    <button (click)="selectDirectory()" class="select-directory-button">
         <span class="icon">📁</span> Selecionar Pasta
     </button>
     <p class="directory-path">{{ selectedDirectory || '/caminho/para/diretorio' }}</p>
 </div>
+
+<button (click)="saveConfigurations()" class="save-config-button">
+    <span class="icon">💾</span> Salvar
+</button>
