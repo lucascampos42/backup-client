@@ -11,9 +11,9 @@ pub fn backup_firebird_databases(window: Window) -> Result<(), String> {
     let config_data = fs::read_to_string(config_path).map_err(|e| format!("Erro ao ler o arquivo: {}", e))?;
     let config: Config = serde_json::from_str(&config_data).map_err(|e| format!("Erro ao desserializar o JSON: {}", e))?;
 
-    let gbak_path = &config.backup_config.gbak_path;
-    let username = &config.backup_config.username;
-    let password = &config.backup_config.password;
+    let gbak_path = &config.backup_firebird_config.gbak_path;
+    let username = &config.backup_firebird_config.username;
+    let password = &config.backup_firebird_config.password;
 
     let current_date = Local::now().format("%d%m%Y_%H%M").to_string();
 

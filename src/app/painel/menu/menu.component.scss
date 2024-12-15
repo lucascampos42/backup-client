@@ -3,29 +3,25 @@
 .navbar {
     background-color: $primary-color;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 180px;
+    width: 160px;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
-    img {
-        margin: 20px auto;
-    }
 }
 
 .navbar-nav {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     .nav-item {
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
-        font-size: 18px;
-        font-weight: 500;
+        font-size: 17px;
+        font-weight: 700;
         display: block;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         .nav-link {
             color: white;
         }
@@ -44,13 +40,13 @@
 }
 
 .icon {
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 auto;
 }
 
 .main-content {
-    margin-left: 190px;
-    padding: 10px;
+    margin-left: 160px;
+    padding: 5px;
 }
 
 .lock-icon {
@@ -67,6 +63,6 @@
     transition: color 0.3s, transform 0.3s; /* Animation for color and transform */
     &:hover {
         color: #ff80ab; /* Lighter shade on hover */
-        transform: scale(1.2); /* Slightly enlarge on hover */
+        transform: scale(1.2);
     }
 }

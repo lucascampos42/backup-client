@@ -1,21 +1,26 @@
 <div id="bkp-local">
-    <h3>Configuração do Backup</h3>
+    <h3>Configuração do Backup Firebird</h3>
     <div>
         <label for="gbakPath">Caminho do GBAK:</label>
         <input id="gbakPath" placeholder="Caminho do GBAK" />
-        <button> Selecionar</button>
+        <input type="file" id="fileInput" style="display: none;" />
+        <button id="selectButton">Selecionar</button>
     </div>
-    <div>
-        <label for="username">Usuário:</label>
-        <input id="username" placeholder="Usuário" />
+
+    <div class="user-password-container">
+        <div>
+            <label for="username">Usuário:</label>
+            <input id="username" placeholder="Usuário" />
+        </div>
+        <div>
+            <label for="password">Senha:</label>
+            <input id="password" type="password" placeholder="Senha" />
+        </div>
     </div>
-    <div>
-        <label for="password">Senha:</label>
-        <input id="password" type="password" placeholder="Senha" />
-        <button mat-raised-button color="primary" class="save-config-button">
-            <mat-icon>save</mat-icon> Salvar Configuração
-        </button>
-    </div>
+
+    <button mat-raised-button color="primary" class="save-config-button">
+        <mat-icon>save</mat-icon> Salvar Configuração
+    </button>
 </div>
 
 <div id="bkp-nuvem" class="row">
