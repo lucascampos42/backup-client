@@ -1,4 +1,4 @@
-<div>
+<div id="bkp-local">
     <h3>Configuração do Backup</h3>
     <div>
         <label for="gbakPath">Caminho do GBAK:</label>
@@ -12,63 +12,48 @@
     <div>
         <label for="password">Senha:</label>
         <input id="password" type="password" placeholder="Senha" />
-    </div>
-    <button class="save-config-button">
-        <span class="icon">💾</span> Salvar Configuração
-    </button>
-</div>
-
-<h2 class="mt-5">Backup em Nuvem</h2>
-
-<div class="backup-settings">
-    <div class="switch-container">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-        <label class="description">BKP em Nuvem</label>
-    </div>
-</div>
-<div class="backup-settings">
-    <div class="switch-container">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-        <label class="description">Diurno</label>
-    </div>
-    <div class="switch-container">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-        <label class="description">Noturno</label>
-    </div>
-    <div class="switch-container">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-        <label class="description">Sábado</label>
-    </div>
-    <div class="switch-container">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-        </label>
-        <label class="description">Domingo</label>
+        <button mat-raised-button color="primary" class="save-config-button">
+            <mat-icon>save</mat-icon> Salvar Configuração
+        </button>
     </div>
 </div>
 
-<div class="backup-settings">
-    <div class="input-group">
-        <select class="backup-interval-select">
-        </select>
+<div id="bkp-nuvem" class="row">
+    <h3 class="mt-5">Backup em Nuvem</h3>
+    <div class="col-6">
+        <div class="switch-container m-2">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <label class="description">BKP em nuvem</label>
+        </div>
+        <div class="d-flex">
+            <div class="switch-container m-2">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <label class="description">Sábado</label>
+            </div>
+
+            <div class="switch-container m-2">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <label class="description">Domingo</label>
+            </div>
+        </div>
     </div>
-    <div class="input-group">
-        <input type="text" placeholder="CNPJ do Cliente" class="client-cnpj-input">
-    </div>
-    <div class="input-group">
-        <input type="text" placeholder="Hash de Identificação do Cliente" class="client-hash-input">
+
+    <div class="col-6">
+        <div class="input-group">
+            <input type="text" placeholder="CNPJ do Cliente" class="client-cnpj-input">
+        </div>
+        <div class="input-group">
+            <input type="text" placeholder="Hash de Identificação do Cliente" class="client-hash-input">
+        </div>
     </div>
 </div>
+

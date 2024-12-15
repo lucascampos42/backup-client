@@ -1,123 +1,143 @@
-.backup-settings {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
+@use '../../../styles' as *;
 
-.directory-path {
-  flex: 1;
-  font-size: 16px;
-  margin: 0;
-}
-
-.select-directory-button {
-  padding: 5px 10px;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.client-hash-input, .client-cnpj-input, .backup-interval-select {
-  flex: 1;
-  padding: 5px;
-  font-size: 14px;
-  border-radius: 4px;
+#bkp-local {
+  padding: 20px;
   border: 1px solid #ccc;
-}
-
-.backup-interval-select {
-  width: 60px;
-}
-
-.description {
-  font-size: 14px;
-  color: #333;
-}
-
-.save-button {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #28a745; /* Cor verde */
-  color: white;
-  border: none;
   border-radius: 5px;
-  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 5px; /* Espaço entre o ícone e o texto */
-}
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
 
-.save-button:hover {
-  background-color: #218838; /* Cor verde mais escura */
-}
+  h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+  }
 
-.save-button .icon {
-  font-size: 18px; /* Tamanho do ícone */
-}
+  div {
+    margin-bottom: 15px;
 
-
-.switch-container {
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid #ccc; /* Contorno */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  border-radius: 5px; /* Bordas arredondadas */
-  width: 200px; /* Tamanho fixo */
-  height: 60px; /* Tamanho fixo */
-
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin-right: 10px; /* Espaço entre a chave e a descrição */
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
 
     input {
-      opacity: 0;
-      width: 0;
-      height: 0;
+      width: calc(100% - 120px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-right: 10px;
     }
 
-    .slider {
-      position: absolute;
+    button {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: white;
       cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: red;
-      transition: .4s;
-      border-radius: 34px;
+      transition: background-color 0.3s;
 
-      &:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
+      &:hover {
+        background-color: #0056b3;
       }
     }
+  }
 
-    input:checked + .slider {
-      background-color: green;
+  .save-config-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #218838;
     }
 
-    input:checked + .slider:before {
-      transform: translateX(26px);
+    mat-icon {
+      font-size: 18px;
     }
+  }
+}
+
+
+#bkp-nuvem {
+
+  .switch-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid #ccc; /* Border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    border-radius: 5px; /* Rounded borders */
+    width: 200px; /* Fixed size */
+    height: 60px; /* Fixed size */
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin-right: 10px; /* Space between switch and description */
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: red;
+        transition: .4s;
+        border-radius: 34px;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+      }
+
+      input:checked + .slider {
+        background-color: green;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+    }
+  }
+  .client-hash-input, .client-cnpj-input, .backup-interval-select {
+    flex: 1;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
   }
 }
