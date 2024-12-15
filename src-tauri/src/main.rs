@@ -1,5 +1,3 @@
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-
 use tauri::{generate_handler, App};
 use std::fs;
 use chrono::prelude::*;
@@ -10,11 +8,13 @@ mod tray;
 mod json;
 mod firebird;
 mod backup;
+mod gbakconfig;
 
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::{create_default_config, load_config};
 use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
 use backup::backup_firebird_databases;
+use gbakconfig::{load_backup_gbak_config, update_backup_gbak_config};
 
 fn initialize_app(_app: &App) {
     let config_path = std::env::current_dir().unwrap().join("config.json");
@@ -38,7 +38,7 @@ fn initialize_app(_app: &App) {
 }
 
 fn main() {
-    // Inicialize o logger
+    // Initialize the logger
     env_logger::init();
 
     let system_tray = build_system_tray();
@@ -56,10 +56,12 @@ fn main() {
             add_firebird_connection,
             delete_firebird_connection,
             validate_password,
-            backup_firebird_databases
+            backup_firebird_databases,
+            load_backup_gbak_config,
+            update_backup_gbak_config
         ])
         .run(tauri::generate_context!())
-        .expect("Erro ao executar a aplicação Tauri");
+        .expect("Error running Tauri application");
 }
 
 #[tauri::command]

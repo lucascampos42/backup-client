@@ -2,23 +2,23 @@
     <h3>Configuração do Backup Firebird</h3>
     <div>
         <label for="gbakPath">Caminho do GBAK:</label>
-        <input id="gbakPath" placeholder="Caminho do GBAK" />
-        <input type="file" id="fileInput" style="display: none;" />
-        <button id="selectButton">Selecionar</button>
+        <input id="gbakPath" [(ngModel)]="gbakPath" />
+        <input type="file" id="fileInput" style="display: none;" (change)="onFileSelected()" #fileInput />
+        <button id="selectButton" (click)="onFileSelected()">Selecionar</button>
     </div>
 
     <div class="user-password-container">
         <div>
             <label for="username">Usuário:</label>
-            <input id="username" placeholder="Usuário" />
+            <input id="username" [(ngModel)]="username" />
         </div>
         <div>
             <label for="password">Senha:</label>
-            <input id="password" type="password" placeholder="Senha" />
+            <input id="password" type="password" [(ngModel)]="password" />
         </div>
     </div>
 
-    <button mat-raised-button color="primary" class="save-config-button">
+    <button mat-raised-button color="primary" class="save-config-button" (click)="saveConfig()">
         <mat-icon>save</mat-icon> Salvar Configuração
     </button>
 </div>
@@ -61,4 +61,3 @@
         </div>
     </div>
 </div>
-

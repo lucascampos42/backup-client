@@ -47,7 +47,7 @@ pub fn create_default_config() -> String {
                 "destino": "C:\\bkp\\"
             }
         ],
-        "backup_firebird_config": {
+        "backup_gbak_config": {
             "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
             "username": "sysdba",
             "password": "masterkey"
@@ -91,7 +91,7 @@ pub struct RemoteConfig {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct BackupFirebirdConfig {
+pub struct BackupGbakConfig {
     pub gbak_path: String,
     pub username: String,
     pub password: String,
@@ -108,6 +108,6 @@ pub struct Config {
     pub firebird: Vec<FirebirdConnection>,
     pub bkp_diretorio: Vec<Diretorio>,
     pub remote_config: RemoteConfig,
-    pub backup_firebird_config: BackupFirebirdConfig,
+    pub backup_gbak_config: BackupGbakConfig,
     pub backup_info: BackupInfo,
 }
