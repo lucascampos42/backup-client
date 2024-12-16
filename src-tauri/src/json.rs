@@ -40,12 +40,13 @@ pub fn create_default_config() -> String {
             }
         ],
         "bkp_diretorio": [
-            {
-                "origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-                "xml": false,
-                "bkp_local": false,
-                "destino": "C:\\bkp\\"
-            }
+					{
+						"origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
+						"xml": false,
+						"bkp_local": false,
+						"destino": "C:\\bkp\\",
+						"backup_schedule_hour": "02:00"
+					}
         ],
         "backup_gbak_config": {
             "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
@@ -60,8 +61,8 @@ pub fn create_default_config() -> String {
             "api": "http://localhost:3000"
         },
         "backup_info": {
-            "last_backup": "2021-01-01 00:00:00",
-            "next_backup": "2021-01-01 00:00:00"
+					"last_backup_local": "2021-01-01 00:00:00",
+					"last_backup_cloud": "2021-01-01 00:00:00"
         }
     }"#.to_string()
 }
@@ -79,6 +80,7 @@ pub struct Diretorio {
     pub xml: bool,
     pub bkp_local: bool,
     pub destino: String,
+    pub backup_schedule_hour: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -99,8 +101,8 @@ pub struct BackupGbakConfig {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct BackupInfo {
-    pub last_backup: String,
-    pub next_backup: String,
+    pub last_backup_local: String,
+    pub last_backup_cloud: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

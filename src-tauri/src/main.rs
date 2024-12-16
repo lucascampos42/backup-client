@@ -2,10 +2,11 @@
 
 use tauri::{generate_handler, App, Manager};
 use std::fs;
-use chrono::prelude::*;
+use chrono::{Local, Datelike};
 use log::{info, error};
 use env_logger;
 use single_instance::SingleInstance;
+use crate::backup::schedule_backup; // Keep this import
 
 mod tray;
 mod json;
@@ -16,7 +17,7 @@ mod gbakconfig;
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::{create_default_config, load_config};
 use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
-use backup::backup_firebird_databases;
+use backup::{backup_firebird_databases}; // Remove duplicate import
 use gbakconfig::{load_backup_gbak_config, update_backup_gbak_config};
 
 fn initialize_app(_app: &App) {
@@ -46,8 +47,6 @@ fn main() {
     let instance = SingleInstance::new("my_tauri_app").unwrap();
 
     if !instance.is_single() {
-        // Use the app instance directly
-        println!("Another instance is already running. Exiting...");
         return;
     }
 
@@ -58,17 +57,18 @@ fn main() {
         .on_system_tray_event(handle_system_tray_event)
         .on_window_event(|event| handle_window_event(event))
         .setup(|app| {
-            // Obter o AppHandle aqui
             let app_handle = app.handle();
 
-            // Lógica para exibir e focar a janela "main" ao detectar outra instância
             if let Some(window) = app_handle.get_window("main") {
                 let _ = window.show();
                 let _ = window.set_focus();
             }
 
-            // Inicializar app (como carregar configs)
             initialize_app(app);
+
+            // Iniciar o agendamento de backup
+            let window = app_handle.get_window("main").unwrap();
+            schedule_backup(window);
 
             Ok(())
         })
