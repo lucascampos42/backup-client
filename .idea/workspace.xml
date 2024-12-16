@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/backupfirebirdconfig.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/gbakconfig.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/tray.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +111,7 @@
       <workItem from="1733971196598" duration="2029000" />
       <workItem from="1734129171154" duration="3007000" />
       <workItem from="1734294037008" duration="14000" />
-      <workItem from="1734294063524" duration="7734000" />
+      <workItem from="1734294063524" duration="11389000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />

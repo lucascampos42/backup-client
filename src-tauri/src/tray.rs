@@ -1,5 +1,4 @@
 use tauri::{CustomMenuItem, SystemTrayMenu, SystemTray, SystemTrayEvent, Manager};
-use log::{info, error};
 
 // Criação do menu da bandeja
 pub fn build_system_tray() -> SystemTray {
@@ -24,50 +23,29 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
             SystemTrayEvent::MenuItemClick { id, .. } => {
                 match id.as_str() {
                     "quit" => {
-                        info!("Sair menu item clicked");
                         app.exit(0);
                     }
                     "hide" => {
-                        if let Err(e) = window.hide() {
-                            error!("Failed to hide window: {:?}", e);
-                        }
+                        let _ = window.hide();
                     }
                     "show" => {
-                        if let Err(e) = window.show() {
-                            error!("Failed to show window: {:?}", e);
-                        }
-                        if let Err(e) = window.set_focus() {
-                            error!("Failed to focus window: {:?}", e);
-                        }
-                        if let Err(e) = window.eval("window.location.href = '/home';") {
-                            error!("Failed to reload home page: {:?}", e);
-                        }
+                        let _ = window.show();
+                        let _ = window.set_focus();
+                        let _ = window.eval("window.location.href = '/home';");
                     }
                     "backup" => {
-                        info!("Backup menu item clicked");
-                        if let Err(e) = window.emit("backup-now", ()) {
-                            error!("Failed to emit backup-now event: {:?}", e);
-                        }
+                        let _ = window.emit("backup-now", ());
                     }
                     _ => {}
                 }
             }
-            SystemTrayEvent::LeftClick { position, .. } => {
-                info!("Tray icon clicked at: {:?}", position);
-                if let Err(e) = window.show() {
-                    error!("Failed to show window: {:?}", e);
-                }
-                if let Err(e) = window.set_focus() {
-                    error!("Failed to focus window: {:?}", e);
-                }
-                if let Err(e) = window.eval("window.location.href = '/home';") {
-                    error!("Failed to reload home page: {:?}", e);
-                }
+            SystemTrayEvent::LeftClick { .. } => {
+                let _ = window.show();
+                let _ = window.set_focus();
+                let _ = window.eval("window.location.href = '/home';");
             }
             _ => {}
         }
-    } else {
-        error!("Main window not found for tray event");
     }
 }
 
@@ -75,9 +53,7 @@ pub fn handle_system_tray_event(app: &tauri::AppHandle, event: SystemTrayEvent) 
 pub fn handle_window_event(event: tauri::GlobalWindowEvent) {
     if let tauri::WindowEvent::CloseRequested { api, .. } = event.event() {
         let window = event.window();
-        if let Err(e) = window.hide() {
-            error!("Failed to hide window on close: {:?}", e);
-        }
+        let _ = window.hide();
         api.prevent_close();
     }
 }

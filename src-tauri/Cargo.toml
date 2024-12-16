@@ -1,6 +1,6 @@
 [package]
 name = "backup-client"
-version = "0.2.2"
+version = "0.1.0"
 description = "Backup Client"
 authors = ["CodesDevs"]
 edition = "2021"
@@ -16,6 +16,8 @@ winreg = "0.10"
 chrono = "0.4"
 log = "0.4"
 env_logger = "0.10"
+single-instance = "0.3"
+
 
 [build-dependencies]
 tauri-build = { version = "1", features = [] }

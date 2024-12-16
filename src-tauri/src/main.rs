@@ -1,8 +1,11 @@
-use tauri::{generate_handler, App};
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+use tauri::{generate_handler, App, Manager};
 use std::fs;
 use chrono::prelude::*;
 use log::{info, error};
 use env_logger;
+use single_instance::SingleInstance;
 
 mod tray;
 mod json;
@@ -27,7 +30,7 @@ fn initialize_app(_app: &App) {
         } else if let Err(e) = fs::write(&config_path, default_config) {
             error!("Failed to create config file: {:?}", e);
         } else {
-            info!("Config file created");
+            info!("Default config created successfully");
         }
     }
 
@@ -38,8 +41,15 @@ fn initialize_app(_app: &App) {
 }
 
 fn main() {
-    // Initialize the logger
     env_logger::init();
+
+    let instance = SingleInstance::new("my_tauri_app").unwrap();
+
+    if !instance.is_single() {
+        // Use the app instance directly
+        println!("Another instance is already running. Exiting...");
+        return;
+    }
 
     let system_tray = build_system_tray();
 
@@ -48,7 +58,18 @@ fn main() {
         .on_system_tray_event(handle_system_tray_event)
         .on_window_event(|event| handle_window_event(event))
         .setup(|app| {
+            // Obter o AppHandle aqui
+            let app_handle = app.handle();
+
+            // Lógica para exibir e focar a janela "main" ao detectar outra instância
+            if let Some(window) = app_handle.get_window("main") {
+                let _ = window.show();
+                let _ = window.set_focus();
+            }
+
+            // Inicializar app (como carregar configs)
             initialize_app(app);
+
             Ok(())
         })
         .invoke_handler(generate_handler![
