@@ -292,6 +292,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "winreg 0.10.1",
+ "zip",
 ]
 
 [[package]]
@@ -423,6 +424,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "325918d6fe32f23b19878fe4b34794ae41fc19ddbe53b10571a4874d44ffd39b"
 dependencies = [
  "serde",
+]
+
+[[package]]
+name = "bzip2"
+version = "0.4.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bdb116a6ef3f6c3698828873ad02c3014b3c85cadb88496095628e3ef1e347f8"
+dependencies = [
+ "bzip2-sys",
+ "libc",
+]
+
+[[package]]
+name = "bzip2-sys"
+version = "0.1.11+1.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "736a955f3fa7875102d57c82b8cac37ec45224a07fd32d58f9f7a186b6cd4cdc"
+dependencies = [
+ "cc",
+ "libc",
+ "pkg-config",
 ]
 
 [[package]]
@@ -2305,7 +2327,7 @@ dependencies = [
  "dirs-next",
  "objc-foundation",
  "objc_id",
- "time",
+ "time 0.3.37",
 ]
 
 [[package]]
@@ -3117,7 +3139,7 @@ dependencies = [
  "indexmap 2.7.0",
  "quick-xml 0.32.0",
  "serde",
- "time",
+ "time 0.3.37",
 ]
 
 [[package]]
@@ -3691,7 +3713,7 @@ dependencies = [
  "serde_derive",
  "serde_json",
  "serde_with_macros",
- "time",
+ "time 0.3.37",
 ]
 
 [[package]]
@@ -4198,7 +4220,7 @@ dependencies = [
  "sha2",
  "tauri-utils",
  "thiserror",
- "time",
+ "time 0.3.37",
  "uuid",
  "walkdir",
 ]
@@ -4388,6 +4410,17 @@ dependencies = [
  "flate2",
  "jpeg-decoder",
  "weezl",
+]
+
+[[package]]
+name = "time"
+version = "0.1.45"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1b797afad3f312d1c66a56d11d0316f916356d11bd158fbc6ca6389ff6bf805a"
+dependencies = [
+ "libc",
+ "wasi 0.10.0+wasi-snapshot-preview1",
+ "winapi",
 ]
 
 [[package]]
@@ -4765,6 +4798,12 @@ name = "wasi"
 version = "0.9.0+wasi-snapshot-preview1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cccddf32554fecc6acb585f82a32a72e28b48f8c4c1883ddfeeeaa96f7d8e519"
+
+[[package]]
+name = "wasi"
+version = "0.10.0+wasi-snapshot-preview1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1a143597ca7c7793eff794def352d41792a93c481eb1042423ff7ff72ba2c31f"
 
 [[package]]
 name = "wasi"
@@ -5815,6 +5854,20 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.90",
+]
+
+[[package]]
+name = "zip"
+version = "0.5.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "93ab48844d61251bb3835145c521d88aa4031d7139e8485990f60ca911fa0815"
+dependencies = [
+ "byteorder",
+ "bzip2",
+ "crc32fast",
+ "flate2",
+ "thiserror",
+ "time 0.1.45",
 ]
 
 [[package]]

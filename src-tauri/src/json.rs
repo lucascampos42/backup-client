@@ -31,40 +31,47 @@ pub fn load_config(config_path: &PathBuf) -> Result<Config, String> {
 }
 
 pub fn create_default_config() -> String {
-    r#"{
-        "firebird": [
-            {
-                "ip": "localhost",
-                "aliases": "eagleerp",
-                "is_fiscal": true
-            }
-        ],
-        "bkp_diretorio": [
-					{
-						"origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-						"xml": false,
-						"bkp_local": false,
-						"destino": "C:\\bkp\\",
-						"backup_schedule_hour": "02:00"
-					}
-        ],
-        "backup_gbak_config": {
-            "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
-            "username": "sysdba",
-            "password": "masterkey"
-        },
-        "remote_config": {
-            "bkp_nuvem": false,
-            "intervalo": "2",
-            "cnpj": "123456",
-            "hash": "123456",
-            "api": "http://localhost:3000"
-        },
-        "backup_info": {
-					"last_backup_local": "2021-01-01 00:00:00",
-					"last_backup_cloud": "2021-01-01 00:00:00"
-        }
-    }"#.to_string()
+	r#"{
+		"firebird": [
+			{
+				"ip": "localhost",
+				"aliases": "eagleerp",
+				"is_fiscal": true
+			}
+		],
+		"bkp_diretorio": [
+			{
+				 	"origem": [
+						{
+							"path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
+							"xml": true
+						},
+						{
+							"path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
+							"xml": false
+						}
+					],
+				"destino": ["C:\\bkp1\\", "C:\\bkp2\\"],
+				"backup_schedule_hours": ["11:50", "17:50"]
+			}
+		],
+		"backup_gbak_config": {
+			"gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
+			"username": "sysdba",
+			"password": "masterkey"
+		},
+		"remote_config": {
+			"bkp_nuvem": false,
+			"intervalo": "2",
+			"cnpj": "123456",
+			"hash": "123456",
+			"api": "http://localhost:3000"
+		},
+		"backup_info": {
+			"last_backup_local": "2021-01-01 00:00:00",
+			"last_backup_cloud": "2021-01-01 00:00:00"
+		}
+	}"#.to_string()
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -75,12 +82,16 @@ pub struct FirebirdConnection {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Diretorio {
-    pub origem: String,
+pub struct Origem {
+    pub path: String,
     pub xml: bool,
-    pub bkp_local: bool,
-    pub destino: String,
-    pub backup_schedule_hour: String,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Diretorio {
+    pub origem: Vec<Origem>,
+    pub destino: Vec<String>,
+    pub backup_schedule_hours: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

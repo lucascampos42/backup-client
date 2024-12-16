@@ -8,11 +8,23 @@
   ],
   "bkp_diretorio": [
     {
-      "origem": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-      "xml": false,
-      "bkp_local": false,
-      "destino": "C:\\bkp\\",
-      "backup_schedule_hour": "23:27"
+      "origem": [
+        {
+          "path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
+          "xml": true
+        },
+        {
+          "path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
+          "xml": false
+        }
+      ],
+      "destino": [
+        "C:\\bkp\\"
+      ],
+      "backup_schedule_hours": [
+        "11:50",
+        "17:50"
+      ]
     }
   ],
   "remote_config": {
@@ -28,7 +40,7 @@
     "password": "masterkey"
   },
   "backup_info": {
-    "last_backup_local": "2024-12-15 23:56:46",
+    "last_backup_local": "2024-12-16 12:48:10",
     "last_backup_cloud": "2021-01-01 00:00:00"
   }
 }
