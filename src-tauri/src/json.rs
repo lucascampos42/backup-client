@@ -51,7 +51,7 @@ pub fn create_default_config() -> String {
 							"xml": false
 						}
 					],
-				"destino": ["C:\\bkp1\\", "C:\\bkp2\\"],
+				"destino": ["C:\\bkp\\"],
 				"backup_schedule_hours": ["11:50", "17:50"]
 			}
 		],

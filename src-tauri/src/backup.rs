@@ -1,4 +1,4 @@
-use std::process::Command;
+use std::process::{Command, Stdio};
 use std::fs::{self, File};
 use std::io::{Write, Read, BufWriter};
 use std::thread;
@@ -10,6 +10,8 @@ use zip::write::FileOptions;
 use zip::CompressionMethod;
 use cron::Schedule;
 use crate::json::{get_config_path, Config};
+use std::os::windows::process::CommandExt;
+use winapi::um::winbase::CREATE_NO_WINDOW;
 
 #[tauri::command]
 pub fn backup_firebird_databases(window: Window) -> Result<(), String> {
@@ -45,6 +47,9 @@ pub fn backup_firebird_databases(window: Window) -> Result<(), String> {
                     .arg(username)
                     .arg("-password")
                     .arg(password)
+                    .creation_flags(CREATE_NO_WINDOW)
+                    .stdout(Stdio::null())
+                    .stderr(Stdio::piped())
                     .output()
                     .map_err(|e| format!("Erro ao executar o comando gbak: {}", e))?;
 
@@ -75,6 +80,9 @@ pub fn backup_firebird_databases(window: Window) -> Result<(), String> {
                     .map_err(|e| format!("Erro ao adicionar arquivo ao zip: {}", e))?;
                 zip.write_all(&buffer).map_err(|e| format!("Erro ao escrever no arquivo zip: {}", e))?;
                 zip.finish().map_err(|e| format!("Erro ao finalizar o arquivo zip: {}", e))?;
+
+                // Delete the unzipped backup file
+                fs::remove_file(&backup_file).map_err(|e| format!("Erro ao deletar o arquivo de backup não zipado: {}", e))?;
 
                 window.emit("backup-progress", format!("Backup concluído e compactado para: {}", connection.aliases)).unwrap();
             }
