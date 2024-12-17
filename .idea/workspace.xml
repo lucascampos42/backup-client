@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
     </list>
@@ -40,7 +42,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
     &quot;npm.tauri dev.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JavaScript&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.devoxx.genie.DevoxxGenie&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\backup-client\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -109,6 +111,12 @@
       <workItem from="1734129171154" duration="3007000" />
       <workItem from="1734294037008" duration="14000" />
       <workItem from="1734294063524" duration="11389000" />
+      <workItem from="1734401935643" duration="467000" />
+      <workItem from="1734402415569" duration="187000" />
+      <workItem from="1734402614285" duration="422000" />
+      <workItem from="1734403059494" duration="473000" />
+      <workItem from="1734403635569" duration="893000" />
+      <workItem from="1734404570679" duration="1914000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />

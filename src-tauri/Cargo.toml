@@ -6,10 +6,11 @@ authors = ["CodesDevs"]
 edition = "2021"
 
 [dependencies]
-cron = "0.10"
-tauri = { version = "1.0", features = [ "api-all", "system-tray"] }
+cron = "0.13"
+tauri = { version = "1", features = [ "api-all", "system-tray"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
 dirs = "5.0.1"
 notify = "5.0"
 winreg = "0.10"
@@ -17,8 +18,9 @@ chrono = "0.4"
 log = "0.4"
 env_logger = "0.10"
 single-instance = "0.3"
-zip = "0.5"
+zip = "0.6"
 winapi = { version = "0.3", features = ["winbase"] }
+
 
 [build-dependencies]
 tauri-build = { version = "1", features = [] }

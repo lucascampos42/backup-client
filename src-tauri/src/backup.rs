@@ -1,7 +1,6 @@
 use std::process::{Command, Stdio};
 use std::fs::{self, File};
 use std::io::{Write, Read, BufWriter};
-use std::thread;
 use std::str::FromStr;
 use tauri::Window;
 use chrono::Local;
@@ -14,7 +13,7 @@ use std::os::windows::process::CommandExt;
 use winapi::um::winbase::CREATE_NO_WINDOW;
 
 #[tauri::command]
-pub fn backup_firebird_databases(window: Window) -> Result<(), String> {
+pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
     let config_path = get_config_path();
     let config_data = fs::read_to_string(&config_path).map_err(|e| format!("Erro ao ler o arquivo: {}", e))?;
     let mut config: Config = serde_json::from_str(&config_data).map_err(|e| format!("Erro ao desserializar o JSON: {}", e))?;
@@ -108,36 +107,43 @@ pub fn schedule_backup(window: Window) {
             let hour_parts: Vec<&str> = backup_schedule_hour.split(':').collect();
             let hour = hour_parts[0];
             let minute = hour_parts[1];
-            let expression = format!("0 {} {} * * * *", minute, hour); // Construir a expressão cron
+            let expression = format!("0 {} {} * * * *", minute, hour);
 
             info!("Expressão cron para agendamento de backup: {}", expression);
 
             let schedule = Schedule::from_str(&expression).unwrap();
             let window_clone = window.clone();
 
-            thread::spawn(move || {
-                let now = Local::now();
-                let upcoming = schedule.upcoming(Local).take(1).next().unwrap();
-                let duration = upcoming.signed_duration_since(now).to_std().unwrap();
+            // Inicia um runtime do Tokio localmente
+            std::thread::spawn(move || {
+                let rt = tokio::runtime::Runtime::new().unwrap();
+                rt.block_on(async move {
+                    let now = Local::now();
+                    let upcoming = schedule.upcoming(Local).take(1).next().unwrap();
+                    let duration = upcoming.signed_duration_since(now).to_std().unwrap();
 
-                info!("Próximo backup agendado para: {}", upcoming);
+                    info!("Próximo backup agendado para: {}", upcoming);
 
-                thread::sleep(duration);
+                    tokio::time::sleep(duration).await;
 
-                loop {
-                    info!("Iniciando backup em: {}", Local::now());
-                    // Chame a função de backup aqui
-                    if let Err(e) = backup_firebird_databases(window_clone.clone()) {
-                        error!("Falha no backup: {}", e);
-                    } else {
-                        info!("Backup concluído com sucesso");
+                    loop {
+                        info!("Iniciando backup em: {}", Local::now());
+
+                        let window_clone_task = window_clone.clone();
+                        if let Err(e) = tokio::spawn(backup_firebird_databases(window_clone_task)).await {
+                            error!("Falha no backup: {}", e);
+                        } else {
+                            info!("Backup concluído com sucesso");
+                        }
+
+                        let next_upcoming = schedule.upcoming(Local).take(1).next().unwrap();
+                        let next_duration = next_upcoming.signed_duration_since(Local::now()).to_std().unwrap();
+                        info!("Próximo backup agendado para: {}", next_upcoming);
+                        tokio::time::sleep(next_duration).await;
                     }
-                    let next_upcoming = schedule.upcoming(Local).take(1).next().unwrap();
-                    let next_duration = next_upcoming.signed_duration_since(Local::now()).to_std().unwrap();
-                    info!("Próximo backup agendado para: {}", next_upcoming);
-                    thread::sleep(next_duration);
-                }
+                });
             });
         }
     }
 }
+
