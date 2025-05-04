@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +32,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/dev/backup-client/src-tauri/bin&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -89,7 +88,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-2e7d6887c066-JavaScript-WS-241.15989.47" />
+        <option value="bundled-js-predefined-d6986cc7102b-45be767fe593-JavaScript-WS-251.23774.34" />
       </set>
     </attachedChunks>
   </component>
@@ -117,6 +116,12 @@
       <workItem from="1734403059494" duration="473000" />
       <workItem from="1734403635569" duration="893000" />
       <workItem from="1734404570679" duration="1914000" />
+      <workItem from="1740436181086" duration="6670000" />
+      <workItem from="1740525621306" duration="664000" />
+      <workItem from="1740590281646" duration="2963000" />
+      <workItem from="1740833662184" duration="63000" />
+      <workItem from="1742438140475" duration="859000" />
+      <workItem from="1742522490833" duration="572000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
