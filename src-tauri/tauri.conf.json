@@ -21,8 +21,8 @@
     "windows": [
       {
         "title": "Backup Client - Development build 0.2.0",
-        "width": 1080,
-        "height": 620,
+        "width": 1040,
+        "height": 700,
         "resizable": false,
         "fullscreen": false,
         "transparent": false

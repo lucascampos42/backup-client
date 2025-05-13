@@ -1,39 +1,60 @@
 <div class="row">
-    <div class="col-6 p-5">
-        <div class="d-flex flex-column justify-content-center align-items-center ">
+    <div class="col-6 p-3">
+        <div class="d-flex flex-column align-items-center">
             <a href="https://tauri.app" target="_blank">
-                <img src="/assets/logo.jpg" class="logo" alt="Tauri logo" width="100" />
+                <img src="/assets/logo.jpg" class="logo" alt="Tauri logo" width="100"/>
             </a>
-            <h1 class="pb-4">Maximus Automação</h1>
+            <h1>Maximus Automação</h1>
         </div>
-        <div class="d-flex align-items-center mt-3">
+        <div class="d-flex align-items-center mt-3 p-2">
             <button class="backup-button" (click)="backupNow()">
-                <img src="/assets/bkpbtn.ico" alt="Backup Icon" />
+                <img src="/assets/bkpbtn.ico" alt="Backup Icon"/>
             </button>
             <h2 class="ms-3 mb-1">Backup agora</h2>
         </div>
         <div class="d-flex align-items-center mt-3">
             <button class="backup-button">
-                <img src="/assets/bkpbtn.ico" alt="Backup Icon" />
+                <img src="/assets/bkpbtn.ico" alt="Backup Icon"/>
             </button>
             <h2 class="ms-3 mb-1">Exporta XML</h2>
         </div>
         <div class="d-flex align-items-center mt-3">
             <button class="backup-button">
-                <img src="/assets/bkpbtn.ico" alt="Backup Icon" />
+                <img src="/assets/bkpbtn.ico" alt="Backup Icon"/>
             </button>
-            <h2 class="ms-3 mb-1">Relatório</h2>
+            <h2 class="ms-3 mb-1">Tutoriais</h2>
+        </div>
+        <div class="d-flex align-items-center mt-3">
+            <button class="backup-button">
+                <img src="/assets/bkpbtn.ico" alt="Backup Icon"/>
+            </button>
+            <h2 class="ms-3 mb-1">Supporte</h2>
         </div>
     </div>
-    <div class="col-6 d-flex justify-content-center align-items-center text-center grid_login right-side">
+    <div class="col-6 text-center grid_login right-side">
+
+        <div class="top-section">
+            <h2>Atenção: Faça seus backups regularmente</h2>
+            <p>
+                Nosso aplicativo disponibiliza ferramentas para auxiliar na realização de backups, porém a responsabilidade pela execução e manutenção dos mesmos é inteiramente do cliente Maximus.
+            </p>
+
+            <p>
+                Não nos responsabilizamos por eventuais perdas de dados causadas pela ausência de backups adequados.
+            </p>
+
+            <p>
+                Para maior segurança e tranquilidade, recomendamos nossa solução de backup em nuvem.
+            </p>
+        </div>
 
         <div class="card_login">
             <a href="https://tauri.app" target="_blank">
-                <img src="/assets/conf.png" class="logo" width="70" />
+                <img src="/assets/conf.png" class="logo" width="50"/>
             </a>
             <h2>Configuração</h2>
             <form class="row" (submit)="accessPanel($event, passwordInput.value)">
-                <input #passwordInput id="password-input" type="password" placeholder="Senha do dia" />
+                <input #passwordInput id="password-input" type="password" placeholder="Senha do dia"/>
                 <button type="submit">
                     <span class="icon">🔒</span>
                 </button>
