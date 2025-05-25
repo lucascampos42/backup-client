@@ -5,33 +5,33 @@ use serde::{Serialize, Deserialize};
 use log::{info, error};
 
 pub fn get_config_path() -> PathBuf {
-    std::env::current_dir().unwrap().join("config.json")
+  std::env::current_dir().unwrap().join("config.json")
 }
 
 pub fn load_config(config_path: &PathBuf) -> Result<Config, String> {
-    info!("Carregando configuração do arquivo: {:?}", config_path);
-    let config_data = fs::read_to_string(config_path).map_err(|e| {
-        let msg = format!("Falha ao ler o arquivo de configuração: {}", e);
-        error!("{}", msg);
-        msg
-    })?;
-    let config_json: Value = serde_json::from_str(&config_data).map_err(|e| {
-        let msg = format!("Falha ao analisar o arquivo de configuração: {}", e);
-        error!("{}", msg);
-        msg
-    })?;
+  info!("Carregando configuração do arquivo: {:?}", config_path);
+  let config_data = fs::read_to_string(config_path).map_err(|e| {
+    let msg = format!("Falha ao ler o arquivo de configuração: {}", e);
+    error!("{}", msg);
+    msg
+  })?;
+  let config_json: Value = serde_json::from_str(&config_data).map_err(|e| {
+    let msg = format!("Falha ao analisar o arquivo de configuração: {}", e);
+    error!("{}", msg);
+    msg
+  })?;
 
-    let config: Config = serde_json::from_value(config_json).map_err(|e| {
-        let msg = format!("Falha ao desserializar a configuração: {}", e);
-        error!("{}", msg);
-        msg
-    })?;
-    info!("Configuração carregada com sucesso.");
-    Ok(config)
+  let config: Config = serde_json::from_value(config_json).map_err(|e| {
+    let msg = format!("Falha ao desserializar a configuração: {}", e);
+    error!("{}", msg);
+    msg
+  })?;
+  info!("Configuração carregada com sucesso.");
+  Ok(config)
 }
 
 pub fn create_default_config() -> String {
-	r#"{
+  r#"{
 		"firebird": [
 			{
 				"ip": "localhost",
@@ -39,22 +39,18 @@ pub fn create_default_config() -> String {
 				"is_fiscal": true
 			}
 		],
-		"bkp_diretorio": [
-			{
-				 	"origem": [
-						{
-							"path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-							"xml": true
-						},
-						{
-							"path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
-							"xml": false
-						}
-					],
-				"destino": ["C:\\bkp\\"],
-				"backup_schedule_hours": ["11:50", "17:50"]
-			}
-		],
+		"bkp_origem": [
+      {
+        "path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
+        "xml": true
+      },
+      {
+        "path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
+        "xml": false
+      }
+    ],
+		"bkp_destino": [{"C:\\bkp\\"}],
+		"backup_schedule_hours": [{"11:50", "17:50"}]
 		"backup_gbak_config": {
 			"gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
 			"username": "sysdba",
@@ -76,51 +72,51 @@ pub fn create_default_config() -> String {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct FirebirdConnection {
-    pub ip: String,
-    pub aliases: String,
-    pub is_fiscal: bool,
+  pub ip: String,
+  pub aliases: String,
+  pub is_fiscal: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Origem {
-    pub path: String,
-    pub xml: bool,
+  pub path: String,
+  pub xml: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Diretorio {
-    pub origem: Vec<Origem>,
-    pub destino: Vec<String>,
-    pub backup_schedule_hours: Vec<String>,
+  pub origem: Vec<Origem>,
+  pub destino: Vec<String>,
+  pub backup_schedule_hours: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RemoteConfig {
-    pub bkp_nuvem: bool,
-    pub intervalo: String,
-    pub cnpj: String,
-    pub hash: String,
-    pub api: String,
+  pub bkp_nuvem: bool,
+  pub intervalo: String,
+  pub cnpj: String,
+  pub hash: String,
+  pub api: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct BackupGbakConfig {
-    pub gbak_path: String,
-    pub username: String,
-    pub password: String,
+  pub gbak_path: String,
+  pub username: String,
+  pub password: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct BackupInfo {
-    pub last_backup_local: String,
-    pub last_backup_cloud: String,
+  pub last_backup_local: String,
+  pub last_backup_cloud: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
-    pub firebird: Vec<FirebirdConnection>,
-    pub bkp_diretorio: Vec<Diretorio>,
-    pub remote_config: RemoteConfig,
-    pub backup_gbak_config: BackupGbakConfig,
-    pub backup_info: BackupInfo,
+  pub firebird: Vec<FirebirdConnection>,
+  pub bkp_diretorio: Vec<Diretorio>,
+  pub remote_config: RemoteConfig,
+  pub backup_gbak_config: BackupGbakConfig,
+  pub backup_info: BackupInfo,
 }

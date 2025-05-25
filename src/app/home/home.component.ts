@@ -11,9 +11,8 @@ import { listen } from '@tauri-apps/api/event';
   standalone: true
 })
 export class HomeComponent implements OnInit {
-  accessMessage = "";
   private attemptCount = 0;
-  
+
   constructor(private router: Router, private notyfService: NotyfService) {}
   
   ngOnInit() {
