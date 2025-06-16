@@ -17,7 +17,8 @@ export class MenuComponent implements OnInit {
     { path: '/painel/firebird', label: 'Aliases Firebird' },
     { path: '/painel/origem', label: 'BKP origem' },
     { path: '/painel/destino', label: 'BKP destino' },
-    { path: '/painel/config', label: 'Configuração' }
+    { path: '/painel/config', label: 'Configuração' },
+    { path: '/painel/horarios', label: 'Horários' }
   ];
   
   constructor(private router: Router) {}

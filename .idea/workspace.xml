@@ -5,22 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/diretorio.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/firebird.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/tray.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +168,7 @@
       <workItem from="1747223975364" duration="1373000" />
       <workItem from="1750024473783" duration="814000" />
       <workItem from="1750025343441" duration="169000" />
-      <workItem from="1750025531401" duration="11550000" />
+      <workItem from="1750025531401" duration="20336000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />

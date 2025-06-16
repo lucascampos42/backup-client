@@ -8,14 +8,18 @@ body, html {
   margin-right: 0;
   margin-left: 0;
   h1 {
-    font-size: 2.8rem;
+    font-size: 3.6rem;
     font-weight: 700;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
   }
+}
+.grid_buttons{
+  background: $primary-color;
 }
 
 .backup-button {
-  @include button-styles($primary-color, $hover-color);
+  @include button-styles($border-color, $hover-color);
   width: 90px;
   height: 90px;
   transition: transform 0.3s;
@@ -26,104 +30,91 @@ body, html {
   }
 
   &:hover {
-    transform: scale(1.1);
-  }
-}
-
-.backup-container {
-  h2 {
-    margin-left: 20px;
+    transform: scale(1.05);
   }
 }
 
 .grid_login {
   .top-section {
-    padding: 5px 0;
-    background: rgba(209, 202, 202, 0.58);
-    margin-block: 60px;
     border-radius: 12px;
     h2 {
       font-weight: 700;
+      font-size: 3.4rem;
+      margin-bottom: 10px;
+      color: red;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      color: red;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
     }
     p {
       font-size: 1.2rem;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       font-weight: 600;
     }
   }
+}
 
-  .card_login {
-    width: 260px;
-    height: 190px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 12px;
-    margin: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+.card_login {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 180px;
+  height: 80px;
+  padding: 6px;
+  border-radius: 12px;
+  margin: auto;
+  transition: transform 0.3s, box-shadow 0.3s;
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+
+    input {
+      padding: 10px 40px 10px 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px; /* Bordas mais arredondadas */
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
     }
 
-    a {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-    }
-
-    form {
+    button {
+      @include button-styles($primary-color, $hover-color);
+      padding: 5px;
+      border-radius: 50%;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: relative;
+      justify-content: center;
+      align-items: center;
 
-      input {
-        padding: 10px 40px 10px 10px;
-        border: 1px solid #ddd;
-        border-radius: 20px; /* Bordas mais arredondadas */
-        transition: border-color 0.3s;
-
-        &:focus {
-          border-color: $primary-color;
-          outline: none;
-        }
+      .icon {
+        font-size: 1rem;
       }
-
-      button {
-        @include button-styles($primary-color, $hover-color);
-        padding: 5px;
-        border-radius: 50%;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .icon {
-          font-size: 1rem;
-        }
-      }
-    }
-
-    p {
-      margin-top: 10px;
-      color: $danger-color;
     }
   }
 }
 
 .right-side {
-  background-color: $primary-color;
   height: 100vh;
 }
 

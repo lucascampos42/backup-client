@@ -17,7 +17,7 @@ mod diretorio;
 
 use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::{create_default_config, load_config};
-use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection};
+use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection, load_backup_schedule_hours, add_backup_schedule_hour, remove_backup_schedule_hour};
 use backup::{backup_firebird_databases};
 use gbakconfig::{load_backup_gbak_config, update_backup_gbak_config};
 use diretorio::{save_directories, load_directories, remove_directory, save_destinos, load_destinos, remove_destino};
@@ -87,7 +87,10 @@ fn main() {
         remove_directory,
         save_destinos,
         load_destinos,
-        remove_destino
+        remove_destino,
+        load_backup_schedule_hours,
+        add_backup_schedule_hour,
+        remove_backup_schedule_hour
       ])
       .run(tauri::generate_context!())
       .expect("Error running Tauri application");

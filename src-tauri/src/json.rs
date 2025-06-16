@@ -45,7 +45,7 @@ pub fn create_default_config() -> String {
       }
     ],
 		"bkp_destino": [{"C:\\bkp\\"}],
-		"backup_schedule_hours": [{"11:50", "17:50"}]
+		"backup_schedule_hours": ["11:50", "17:50"]
 		"backup_gbak_config": {
 			"gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
 			"username": "sysdba",

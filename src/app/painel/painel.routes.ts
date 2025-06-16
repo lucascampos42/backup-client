@@ -5,6 +5,7 @@ import {ConfigComponent} from "./config/config.component";
 import {FirebirdComponent} from "./firebird/firebird.component";
 import {OrigemComponent} from "./origem/origem.component";
 import {DestinoComponent} from "./destino/destino.component";
+import {HoraComponent} from "./hora/hora.component";
 
 export const painelRoutes: Routes = [
   {
@@ -17,6 +18,7 @@ export const painelRoutes: Routes = [
       { path: 'origem', component: OrigemComponent },
       { path: 'destino', component: DestinoComponent },
       { path: 'config', component: ConfigComponent },
+      { path: 'horarios', component: HoraComponent }
     ]
   }
 ];

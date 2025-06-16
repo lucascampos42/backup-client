@@ -4,31 +4,18 @@
       "ip": "localhost",
       "aliases": "eagleerp",
       "is_fiscal": true
-    },
-    {
-      "ip": "localhost",
-      "aliases": "gerencial",
-      "is_fiscal": false
-    },
-    {
-      "ip": "a",
-      "aliases": "a",
-      "is_fiscal": false
     }
   ],
   "bkp_diretorio": [
     {
-      "origem": [
-        {
-          "path": "D:\\Patch Creator"
-        }
-      ],
+      "origem": [],
       "destino": [
-        "C:\\bkp\\"
+        "C:\\bkp\\",
+        "C:\\bkp2"
       ],
       "backup_schedule_hours": [
         "11:50",
-        "17:50"
+        "01:44"
       ]
     }
   ],
@@ -38,7 +25,7 @@
     "password": "masterkey"
   },
   "backup_info": {
-    "last_backup_local": "2025-05-13 17:50:12",
+    "last_backup_local": "2025-06-16 01:41:11",
     "last_backup_cloud": "2021-01-01 00:00:00"
   }
 }

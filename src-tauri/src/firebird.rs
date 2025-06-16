@@ -96,3 +96,44 @@ pub fn delete_firebird_connection(aliases: String) -> Result<(), String> {
   println!("Conexão com aliases '{}' removida com sucesso", aliases);
   Ok(())
 }
+
+#[command]
+pub fn load_backup_schedule_hours() -> Result<Vec<String>, String> {
+  let config_path = get_config_path();
+  let data = fs::read_to_string(&config_path).map_err(|e| e.to_string())?;
+  let config: Config = serde_json::from_str(&data).map_err(|e| e.to_string())?;
+  // Retorna as horas do primeiro item de bkp_diretorio ou um vetor vazio
+  Ok(config
+    .bkp_diretorio
+    .get(0)
+    .map(|d| d.backup_schedule_hours.clone())
+    .unwrap_or_default())
+}
+
+#[command]
+pub fn add_backup_schedule_hour(horario: String) -> Result<(), String> {
+  let config_path = get_config_path();
+  let mut config: Config = serde_json::from_str(&fs::read_to_string(&config_path).map_err(|e| e.to_string())?)
+    .map_err(|e| e.to_string())?;
+  if let Some(dir) = config.bkp_diretorio.get_mut(0) {
+    dir.backup_schedule_hours.push(horario);
+  }
+  fs::write(&config_path, serde_json::to_string_pretty(&config).map_err(|e| e.to_string())?)
+    .map_err(|e| e.to_string())?;
+  Ok(())
+}
+
+#[command]
+pub fn remove_backup_schedule_hour(index: usize) -> Result<(), String> {
+  let config_path = get_config_path();
+  let mut config: Config = serde_json::from_str(&fs::read_to_string(&config_path).map_err(|e| e.to_string())?)
+    .map_err(|e| e.to_string())?;
+  if let Some(dir) = config.bkp_diretorio.get_mut(0) {
+    if index < dir.backup_schedule_hours.len() {
+      dir.backup_schedule_hours.remove(index);
+    }
+  }
+  fs::write(&config_path, serde_json::to_string_pretty(&config).map_err(|e| e.to_string())?)
+    .map_err(|e| e.to_string())?;
+  Ok(())
+}
