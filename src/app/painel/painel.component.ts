@@ -6,7 +6,7 @@ import { MenuComponent } from './menu/menu.component';
   selector: 'app-painel',
   imports: [RouterModule, MenuComponent],
   template: `
-      <app-menu></app-menu>
+      <app-menu />
   `
 })
 export class PainelComponent {

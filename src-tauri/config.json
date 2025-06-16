@@ -4,18 +4,23 @@
       "ip": "localhost",
       "aliases": "eagleerp",
       "is_fiscal": true
+    },
+    {
+      "ip": "localhost",
+      "aliases": "gerencial",
+      "is_fiscal": false
+    },
+    {
+      "ip": "a",
+      "aliases": "a",
+      "is_fiscal": false
     }
   ],
   "bkp_diretorio": [
     {
       "origem": [
         {
-          "path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-          "xml": true
-        },
-        {
-          "path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
-          "xml": false
+          "path": "D:\\Patch Creator"
         }
       ],
       "destino": [
@@ -27,13 +32,6 @@
       ]
     }
   ],
-  "remote_config": {
-    "bkp_nuvem": false,
-    "intervalo": "2",
-    "cnpj": "123456",
-    "hash": "123456",
-    "api": "http://localhost:3000"
-  },
   "backup_gbak_config": {
     "gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
     "username": "sysdba",

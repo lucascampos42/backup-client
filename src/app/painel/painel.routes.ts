@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { PainelComponent } from './painel.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {BkpdiretoriosComponent} from "./bkpdiretorios/bkpdiretorios.component";
 import {ConfigComponent} from "./config/config.component";
 import {FirebirdComponent} from "./firebird/firebird.component";
+import {OrigemComponent} from "./origem/origem.component";
+import {DestinoComponent} from "./destino/destino.component";
 
 export const painelRoutes: Routes = [
   {
@@ -13,7 +14,8 @@ export const painelRoutes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'firebird', component: FirebirdComponent },
-      { path: 'pasta', component: BkpdiretoriosComponent },
+      { path: 'origem', component: OrigemComponent },
+      { path: 'destino', component: DestinoComponent },
       { path: 'config', component: ConfigComponent },
     ]
   }

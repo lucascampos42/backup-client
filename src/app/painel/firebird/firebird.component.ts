@@ -42,7 +42,6 @@ export class FirebirdComponent implements OnInit {
       this.firebirdConfig = config.firebird;
       this.notyf.success('Configurações carregadas com sucesso');
     } catch (error) {
-      console.error('Erro ao carregar configurações:', error);
       this.notyf.error('Falha ao carregar configurações');
     }
   }
@@ -57,7 +56,6 @@ export class FirebirdComponent implements OnInit {
       if (error === 'Conexão com o mesmo IP e aliases já existe.') {
         this.notyf.error('Conexão com o mesmo IP e aliases já existe.');
       } else {
-        console.error('Erro ao adicionar nova conexão:', error);
         this.notyf.error('Falha ao adicionar nova conexão');
       }
     }

@@ -2,10 +2,10 @@ use tauri::{CustomMenuItem, SystemTrayMenu, SystemTray, SystemTrayEvent, Manager
 
 // Criação do menu da bandeja
 pub fn build_system_tray() -> SystemTray {
-    let quit = CustomMenuItem::new("quit".to_string(), "Sair");
     let hide = CustomMenuItem::new("hide".to_string(), "Ocultar");
     let show = CustomMenuItem::new("show".to_string(), "Mostrar");
     let backup = CustomMenuItem::new("backup".to_string(), "Fazer Backup");
+    let quit = CustomMenuItem::new("quit".to_string(), "Sair");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(hide)

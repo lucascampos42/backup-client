@@ -41,12 +41,7 @@ pub fn create_default_config() -> String {
 		],
 		"bkp_origem": [
       {
-        "path": "C:\\Program Files (x86)\\Eagle\\PdvExpresso\\",
-        "xml": true
-      },
-      {
         "path": "C:\\Program Files (x86)\\Eagle\\Eagle Gestao\\Reports\\",
-        "xml": false
       }
     ],
 		"bkp_destino": [{"C:\\bkp\\"}],
@@ -55,13 +50,6 @@ pub fn create_default_config() -> String {
 			"gbak_path": "C:\\Program Files\\Firebird\\Firebird_2_5\\bin\\gbak.exe",
 			"username": "sysdba",
 			"password": "masterkey"
-		},
-		"remote_config": {
-			"bkp_nuvem": false,
-			"intervalo": "2",
-			"cnpj": "123456",
-			"hash": "123456",
-			"api": "http://localhost:3000"
 		},
 		"backup_info": {
 			"last_backup_local": "2021-01-01 00:00:00",
@@ -77,10 +65,9 @@ pub struct FirebirdConnection {
   pub is_fiscal: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Origem {
   pub path: String,
-  pub xml: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -88,15 +75,6 @@ pub struct Diretorio {
   pub origem: Vec<Origem>,
   pub destino: Vec<String>,
   pub backup_schedule_hours: Vec<String>,
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct RemoteConfig {
-  pub bkp_nuvem: bool,
-  pub intervalo: String,
-  pub cnpj: String,
-  pub hash: String,
-  pub api: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -116,7 +94,6 @@ pub struct BackupInfo {
 pub struct Config {
   pub firebird: Vec<FirebirdConnection>,
   pub bkp_diretorio: Vec<Diretorio>,
-  pub remote_config: RemoteConfig,
   pub backup_gbak_config: BackupGbakConfig,
   pub backup_info: BackupInfo,
 }

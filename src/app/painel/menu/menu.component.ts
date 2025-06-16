@@ -15,7 +15,8 @@ export class MenuComponent implements OnInit {
     
     { path: '/painel/dashboard', label: 'Dashboard' },
     { path: '/painel/firebird', label: 'Aliases Firebird' },
-    { path: '/painel/pasta', label: 'BKP de Diretorios' },
+    { path: '/painel/origem', label: 'BKP origem' },
+    { path: '/painel/destino', label: 'BKP destino' },
     { path: '/painel/config', label: 'Configuração' }
   ];
   

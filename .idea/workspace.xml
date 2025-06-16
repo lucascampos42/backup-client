@@ -5,10 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/src-tauri/src/diretorio.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/tray.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/bkpdiretorios/bkpdiretorios.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +39,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/lucascampos42/backup-client.git&quot;,
-    &quot;accountId&quot;: &quot;537ff3fc-4705-4e1e-b367-9748c2fe3de4&quot;
+    &quot;accountId&quot;: &quot;7ba7b567-458c-4bad-9dc6-c5eaf33ae07d&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -49,28 +61,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/backup-client&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
-    &quot;npm.tauri dev.executor&quot;: &quot;Debug&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon&quot;: &quot;&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.devoxx.genie.DevoxxGenie&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\dev\\backup-client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/dev/backup-client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server.executor": "Run",
+    "npm.tauri dev.executor": "Debug",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "C:\\dev\\backup-client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\dev\backup-client\src-tauri\bin" />
@@ -84,7 +98,7 @@
       <recent name="C:\dev\backup-client\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.tauri dev">
+  <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -116,7 +130,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
       </set>
     </attachedChunks>
   </component>
@@ -154,6 +168,9 @@
       <workItem from="1747053249380" duration="9000" />
       <workItem from="1747139195582" duration="295000" />
       <workItem from="1747223975364" duration="1373000" />
+      <workItem from="1750024473783" duration="814000" />
+      <workItem from="1750025343441" duration="169000" />
+      <workItem from="1750025531401" duration="11550000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />

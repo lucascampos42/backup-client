@@ -84,25 +84,22 @@
 }
 
 .config-item {
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border: 1px solid $border-color;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    gap: 10px;
-    p {
-        font-size: 16px;
-        margin: 0;
-        flex: 1;
-    }
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  gap: 10px;
+
+  span {
+      font-size: 16px;
+
+  }
+
 }
 
 .config-item button {
     @include button-styles($danger-color, $danger-hover-color);
-    white-space: nowrap;
     padding: 2px 2px;
-    font-size: 12px;
+    font-size: 16px;
     border-radius: 4px;
 }
 
