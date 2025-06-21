@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
+      <change afterPath="$PROJECT_DIR$/src-tauri/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/firebird.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,13 +65,14 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/dev/backup-client",
+    "last_opened_file_path": "C:/dev/backup-client/src-tauri/src",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.Angular CLI Server.executor": "Run",
-    "npm.tauri dev.executor": "Debug",
+    "npm.build.executor": "Run",
+    "npm.tauri dev.executor": "Run",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -85,6 +82,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\backup-client\src-tauri\src" />
       <recent name="C:\dev\backup-client\src-tauri\bin" />
       <recent name="C:\dev\backup-client\src-tauri\target\debug" />
     </key>
@@ -96,7 +94,7 @@
       <recent name="C:\dev\backup-client\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.Angular CLI Server">
+  <component name="RunManager" selected="npm.tauri dev">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
@@ -105,6 +103,16 @@
       <command value="run" />
       <scripts>
         <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -121,6 +129,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
@@ -168,7 +181,19 @@
       <workItem from="1747223975364" duration="1373000" />
       <workItem from="1750024473783" duration="814000" />
       <workItem from="1750025343441" duration="169000" />
-      <workItem from="1750025531401" duration="20336000" />
+      <workItem from="1750025531401" duration="29626000" />
+      <workItem from="1750075369849" duration="13000" />
+      <workItem from="1750079228208" duration="1253000" />
+      <workItem from="1750088510843" duration="588000" />
+      <workItem from="1750089662337" duration="584000" />
+      <workItem from="1750164661140" duration="583000" />
+      <workItem from="1750295364598" duration="251000" />
+      <workItem from="1750346524852" duration="331000" />
+      <workItem from="1750346905661" duration="516000" />
+      <workItem from="1750457920564" duration="902000" />
+      <workItem from="1750511982787" duration="635000" />
+      <workItem from="1750519312668" duration="1976000" />
+      <workItem from="1750534171973" duration="4649000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />

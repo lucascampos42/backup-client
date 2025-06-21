@@ -12,8 +12,7 @@ use crate::json::{get_config_path, Config};
 use std::os::windows::process::CommandExt;
 use winapi::um::winbase::CREATE_NO_WINDOW;
 use tauri::async_runtime;
-use tauri::api::notification::Notification;
-use tauri::Manager;
+use tauri::Emitter; // Importante para usar .emit
 
 #[tauri::command]
 pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
@@ -30,7 +29,6 @@ pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
     for (_index, connection) in config.firebird.iter().enumerate() {
         for dir in &config.bkp_diretorio {
             for destino in &dir.destino {
-                // Ensure the destination directory exists
                 if let Err(e) = fs::create_dir_all(destino) {
                     error!("Failed to create destination directory: {}", e);
                     window.emit("backup-progress", format!("Failed to create destination directory: {}", e)).unwrap();
@@ -66,13 +64,12 @@ pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
                     return Err(error_message);
                 }
 
-                // Compress the backup file using zip
                 let compressed_file = format!("{}\\{}_{}.zip", destino, connection.aliases, current_date);
                 let zip_file = File::create(&compressed_file).map_err(|e| format!("Erro ao criar o arquivo zip: {}", e))?;
                 let mut zip = zip::ZipWriter::new(BufWriter::new(zip_file));
 
                 let options = FileOptions::default()
-                    .compression_method(CompressionMethod::Deflated); // Use Deflated method for compression
+                    .compression_method(CompressionMethod::Deflated);
 
                 let mut buffer = Vec::new();
                 let mut file = File::open(&backup_file).map_err(|e| format!("Erro ao abrir o arquivo de backup: {}", e))?;
@@ -83,7 +80,6 @@ pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
                 zip.write_all(&buffer).map_err(|e| format!("Erro ao escrever no arquivo zip: {}", e))?;
                 zip.finish().map_err(|e| format!("Erro ao finalizar o arquivo zip: {}", e))?;
 
-                // Delete the unzipped backup file
                 fs::remove_file(&backup_file).map_err(|e| format!("Erro ao deletar o arquivo de backup não zipado: {}", e))?;
 
                 window.emit("backup-progress", format!("Backup concluído e compactado para: {}", connection.aliases)).unwrap();
@@ -91,7 +87,6 @@ pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
         }
     }
 
-    // Update the last_backup_local field
     config.backup_info.last_backup_local = Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
     let updated_config_data = serde_json::to_string_pretty(&config).map_err(|e| format!("Erro ao serializar o JSON: {}", e))?;
     fs::write(&config_path, updated_config_data).map_err(|e| format!("Erro ao escrever o arquivo de configuração: {}", e))?;
@@ -101,34 +96,30 @@ pub async fn backup_firebird_databases(window: Window) -> Result<(), String> {
 }
 
 pub fn schedule_backup(window: Window) {
-  let config_data = fs::read_to_string(get_config_path()).expect("Erro ao ler config");
-  let config: Config = serde_json::from_str(&config_data).expect("Erro ao desserializar JSON");
+    let config_data = fs::read_to_string(get_config_path()).expect("Erro ao ler config");
+    let config: Config = serde_json::from_str(&config_data).expect("Erro ao desserializar JSON");
 
-  async_runtime::spawn(async move {
-    for dir in &config.bkp_diretorio {
-      for horario in &dir.backup_schedule_hours {
-        let parts: Vec<&str> = horario.split(':').collect();
-        let expr = format!("0 {} {} * * * *", parts[1], parts[0]);
-        let schedule = Schedule::from_str(&expr).unwrap();
-        let window_clone = window.clone();
+    async_runtime::spawn(async move {
+        for dir in &config.bkp_diretorio {
+            for horario in &dir.backup_schedule_hours {
+                let parts: Vec<&str> = horario.split(':').collect();
+                let expr = format!("0 {} {} * * * *", parts[1], parts[0]);
+                let schedule = Schedule::from_str(&expr).unwrap();
+                let window_clone = window.clone();
 
-        tokio::spawn(async move {
-          let mut upcoming = schedule.upcoming(Local);
-          while let Some(next) = upcoming.next() {
-            let delay = next.signed_duration_since(Local::now()).to_std().unwrap();
-            tokio::time::sleep(delay).await;
-            if let Err(e) = backup_firebird_databases(window_clone.clone()).await {
-              error!("Falha no backup agendado: {}", e);
-              let _ = window_clone.emit("backup-error", format!("{}", e));
-              Notification::new("backup-error")
-                .title("Backup agendado falhou")
-                .body(&format!("Não foi possível executar o backup: {}", e))
-                .show()
-                .ok();
+                tokio::spawn(async move {
+                    let mut upcoming = schedule.upcoming(Local);
+                    while let Some(next) = upcoming.next() {
+                        let delay = next.signed_duration_since(Local::now()).to_std().unwrap();
+                        tokio::time::sleep(delay).await;
+                        if let Err(e) = backup_firebird_databases(window_clone.clone()).await {
+                            error!("Falha no backup agendado: {}", e);
+                            let _ = window_clone.emit("backup-error", format!("{}", e));
+                            // Notificação: use o plugin oficial se quiser notificar o usuário
+                        }
+                    }
+                });
             }
-          }
-        });
-      }
-    }
-  });
+        }
+    });
 }

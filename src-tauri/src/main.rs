@@ -8,22 +8,29 @@ use env_logger;
 use single_instance::SingleInstance;
 use crate::backup::schedule_backup;
 
-mod tray;
 mod json;
 mod firebird;
 mod backup;
 mod gbakconfig;
 mod diretorio;
 
-use tray::{build_system_tray, handle_system_tray_event, handle_window_event};
 use json::{create_default_config, load_config};
 use firebird::{load_firebird_config, add_firebird_connection, delete_firebird_connection, load_backup_schedule_hours, add_backup_schedule_hour, remove_backup_schedule_hour};
 use backup::{backup_firebird_databases};
 use gbakconfig::{load_backup_gbak_config, update_backup_gbak_config};
 use diretorio::{save_directories, load_directories, remove_directory, save_destinos, load_destinos, remove_destino};
 
-fn initialize_app(_app: &App) {
-    let config_path = std::env::current_dir().unwrap().join("config.json");
+fn init_logger() {
+    env_logger::init();
+}
+
+fn ensure_single_instance() -> bool {
+    let instance = SingleInstance::new("my_tauri_app").unwrap();
+    instance.is_single()
+}
+
+fn initialize_app(app: &mut App) {
+    let config_path = app.path().app_config_dir().unwrap().join("config.json");
     info!("Config path: {:?}", config_path);
 
     if !config_path.exists() {
@@ -44,56 +51,40 @@ fn initialize_app(_app: &App) {
 }
 
 fn main() {
-    env_logger::init();
+    init_logger();
 
-    let instance = SingleInstance::new("my_tauri_app").unwrap();
-
-    if !instance.is_single() {
+    if !ensure_single_instance() {
         return;
     }
 
-    let system_tray = build_system_tray();
-
     tauri::Builder::default()
-      .system_tray(system_tray)
-      .on_system_tray_event(handle_system_tray_event)
-      .on_window_event(|event| handle_window_event(event))
-      .setup(|app| {
-        let app_handle = app.handle();
-
-        if let Some(window) = app_handle.get_window("main") {
-          let _ = window.show();
-          let _ = window.set_focus();
-        }
-
-        initialize_app(app);
-
-        // Iniciar o agendamento de backup
-        let window = app_handle.get_window("main").unwrap();
-        schedule_backup(window);
-
-        Ok(())
-      })
-      .invoke_handler(generate_handler![
-        load_firebird_config,
-        add_firebird_connection,
-        delete_firebird_connection,
-        validate_password,
-        backup_firebird_databases,
-        load_backup_gbak_config,
-        update_backup_gbak_config,
-        save_directories,
-        load_directories,
-        remove_directory,
-        save_destinos,
-        load_destinos,
-        remove_destino,
-        load_backup_schedule_hours,
-        add_backup_schedule_hour,
-        remove_backup_schedule_hour
-      ])
-      .run(tauri::generate_context!())
-      .expect("Error running Tauri application");
+        .plugin(tauri_plugin_opener::init())
+        .invoke_handler(generate_handler![
+            load_firebird_config,
+            add_firebird_connection,
+            delete_firebird_connection,
+            validate_password,
+            backup_firebird_databases,
+            load_backup_gbak_config,
+            update_backup_gbak_config,
+            save_directories,
+            load_directories,
+            remove_directory,
+            save_destinos,
+            load_destinos,
+            remove_destino,
+            load_backup_schedule_hours,
+            add_backup_schedule_hour,
+            remove_backup_schedule_hour
+        ])
+        .build(tauri::generate_context!())
+        .expect("error while building Tauri application")
+        .run(|_app_handle, event| match event {
+            tauri::RunEvent::ExitRequested { api, .. } => {
+                api.prevent_exit();
+            }
+            _ => {}
+        });
 }
 
 #[tauri::command]
