@@ -5,16 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/tray.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/build.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/icons/128x128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/icons/32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/installer.nsi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/diretorio.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/gbakconfig.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/lib.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +205,7 @@
       <workItem from="1750457920564" duration="902000" />
       <workItem from="1750511982787" duration="635000" />
       <workItem from="1750519312668" duration="1976000" />
-      <workItem from="1750534171973" duration="4649000" />
+      <workItem from="1750534171973" duration="7062000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
