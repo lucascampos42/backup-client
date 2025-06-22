@@ -9,11 +9,10 @@ interface DestinoConfig {
 }
 
 @Component({
-  selector: 'app-destino',
-  standalone: true,
-  imports: [NgForOf],
-  templateUrl: './destino.component.html',
-  styleUrl: './destino.component.scss'
+    selector: 'app-destino',
+    imports: [NgForOf],
+    templateUrl: './destino.component.html',
+    styleUrl: './destino.component.scss'
 })
 export class DestinoComponent implements OnInit {
   destinos: DestinoConfig[] = [];

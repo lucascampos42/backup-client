@@ -5,12 +5,11 @@ import { Component, OnInit } from '@angular/core';
       import { NotyfService } from '../../services/notyf.service';
 
       @Component({
-        selector: 'app-hora',
-        standalone: true,
-        imports: [CommonModule, FormsModule],
-        templateUrl: './hora.component.html',
-        styleUrls: ['./hora.component.scss']
-      })
+    selector: 'app-hora',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './hora.component.html',
+    styleUrls: ['./hora.component.scss']
+})
       export class HoraComponent implements OnInit {
         horarios: string[] = [];
         novoHorario = '';
