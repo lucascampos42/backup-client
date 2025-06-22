@@ -59,6 +59,10 @@ fn main() {
     }
 
     tauri::Builder::default()
+        .setup(|app| {
+          initialize_app(app);
+          Ok(())
+        })
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(generate_handler![
             load_firebird_config,

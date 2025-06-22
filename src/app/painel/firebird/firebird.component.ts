@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NotyfService } from '../../services/notyf.service';
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from '@tauri-apps/api/core';
 import {MatIconModule} from "@angular/material/icon";
 
 interface FirebirdConfig {
@@ -68,7 +68,7 @@ export class FirebirdComponent implements OnInit {
       .then(() => {
         this.firebirdConfig = this.firebirdConfig.filter(config => config.ip !== ip || config.aliases !== aliases);
       })
-      .catch(err => {
+      .catch((err: unknown) => {
         console.error('Erro ao deletar a conexão:', err);
       });
   }

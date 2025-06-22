@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotyfService } from '../services/notyf.service';
-import { invoke } from '@tauri-apps/api/tauri';
+import { invoke } from '@tauri-apps/api/core';
 import { listen } from '@tauri-apps/api/event';
 
 @Component({
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     event.preventDefault();
     
     invoke<boolean>('validate_password', { password })
-      .then(isValid => {
+      .then((isValid: boolean) => {
         if (isValid) {
           this.notyfService.success('Acesso concedido. Redirecionando...');
           setTimeout(() => {
