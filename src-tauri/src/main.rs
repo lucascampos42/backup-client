@@ -64,6 +64,7 @@ fn main() {
           Ok(())
         })
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_dialog::init())
         .invoke_handler(generate_handler![
             load_firebird_config,
             add_firebird_connection,
@@ -80,7 +81,8 @@ fn main() {
             remove_destino,
             load_backup_schedule_hours,
             add_backup_schedule_hour,
-            remove_backup_schedule_hour
+            remove_backup_schedule_hour,
+            open_in_explorer
         ])
         .build(tauri::generate_context!())
         .expect("error while building Tauri application")
@@ -102,3 +104,19 @@ fn validate_password(password: String) -> bool {
     let calculated_password = 30676 * day * month + year;
     password == calculated_password.to_string()
 }
+
+#[tauri::command]
+fn open_in_explorer(path: String) -> Result<(), String> {
+    println!("Tentando abrir: {}", path);
+    match open::that(&path) {
+        Ok(_) => {
+            println!("Explorador aberto com sucesso.");
+            Ok(())
+        }
+        Err(e) => {
+            println!("Erro ao abrir explorador: {}", e);
+            Err(e.to_string())
+        }
+    }
+}
+

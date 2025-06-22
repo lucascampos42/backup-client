@@ -43,8 +43,11 @@ export class DestinoComponent implements OnInit {
       const path = Array.isArray(selected) ? selected[0] : selected;
       if (path && !this.destinos.some(d => d.path === path)) {
         this.destinos.push({ path });
+        // Chama o comando Rust para abrir o Explorer
+        await invoke('open_in_explorer', { path });
       }
-    } catch {
+    } catch (error: unknown) {
+      console.error('Erro ao abrir Explorer:', error);
       this.notyfService.error('Seleção de pasta não suportada neste ambiente.');
     }
   }
@@ -61,4 +64,17 @@ export class DestinoComponent implements OnInit {
       this.notyfService.error('Erro ao salvar destinos');
     }
   }
+
+  async testarDialogoArquivo() {
+    try {
+      const file = await open({ multiple: false, title: 'Selecione um arquivo' });
+      console.log('Arquivo selecionado:', file);
+      if (file) {
+        // Aqui você pode usar o caminho do arquivo selecionado para atualizar algum estado ou variável
+      }
+    } catch (error) {
+      console.error('Erro ao abrir diálogo:', error);
+    }
+  }
+
 }

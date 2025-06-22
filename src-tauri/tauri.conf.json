@@ -31,5 +31,9 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ]
+  },
+  "plugins": {
+    "dialog": null,
+    "opener": null
   }
 }
