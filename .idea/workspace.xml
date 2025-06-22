@@ -5,16 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/backup.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/diretorio.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/firebird.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/gbakconfig.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src-tauri/src/json.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/src/main.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/home.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/config/config.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/dashboard/dashboard.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/destino/destino.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/firebird/firebird.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/hora/hora.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/hora/hora.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/hora/hora.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/menu/menu.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/origem/origem.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/painel.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/painel/painel.routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/services/notyf.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/shared/menu/menu.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/bkpbtn.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/conf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:1420.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
@@ -65,7 +94,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/backup-client/src-tauri/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/backup-client/src&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -94,8 +123,11 @@
       <recent name="C:\dev\backup-client\src" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.tauri dev">
+  <component name="RunManager" selected="JavaScript Debug.localhost:1420">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="localhost:1420" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:1420/">
       <method v="2" />
     </configuration>
     <configuration name="Angular CLI Server" type="js.build_tools.npm">
@@ -131,6 +163,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.localhost:1420" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -193,7 +226,7 @@
       <workItem from="1750457920564" duration="902000" />
       <workItem from="1750511982787" duration="635000" />
       <workItem from="1750519312668" duration="1976000" />
-      <workItem from="1750534171973" duration="8980000" />
+      <workItem from="1750534171973" duration="9354000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
