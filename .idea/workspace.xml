@@ -5,28 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="292d2903-162f-4adc-97e2-ec62387aba14" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/build.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/icons/128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/icons/32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.icns" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/icons/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/installer.nsi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/backup.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/diretorio.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/firebird.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/gbakconfig.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/json.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/lib.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/src/main.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/angular-compiler.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/angular-compiler.db-lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_common.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_core.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_core.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_forms.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_forms.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_material_icon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_material_icon.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_platform-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_platform-browser.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@angular_router.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_dialog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_dialog.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_event.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_event.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_tauri.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/@tauri-apps_api_tauri.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-AEYGP5W6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-AEYGP5W6.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-B3SVRNSN.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-B3SVRNSN.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-KKSA2PV6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-KKSA2PV6.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-NPIHXIMR.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-NPIHXIMR.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-Q4VBDLF2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-Q4VBDLF2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-WDMUDEB6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/chunk-WDMUDEB6.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/notyf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/notyf.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/19.0.4/backup-client/vite/deps_temp_aa9b570c/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backup-client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +225,7 @@
       <workItem from="1750457920564" duration="902000" />
       <workItem from="1750511982787" duration="635000" />
       <workItem from="1750519312668" duration="1976000" />
-      <workItem from="1750534171973" duration="7062000" />
+      <workItem from="1750534171973" duration="8366000" />
     </task>
     <task id="LOCAL-00001" summary="fix">
       <option name="closed" value="true" />
