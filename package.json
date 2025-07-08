@@ -20,8 +20,6 @@
     "@angular/platform-browser-dynamic": "^20.0.4",
     "@angular/router": "^20.0.4",
     "@tauri-apps/api": "^2.5.0",
-    "@tauri-apps/plugin-dialog": "^2.2.2",
-    "@tauri-apps/plugin-opener": "^2",
     "bootstrap": "^5.3.7",
     "notyf": "^3.10.0",
     "rxjs": "~7.8.0",

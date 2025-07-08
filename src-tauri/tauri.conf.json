@@ -33,7 +33,6 @@
     ]
   },
   "plugins": {
-    "dialog": null,
-    "opener": null
+    "dialog": null
   }
 }
